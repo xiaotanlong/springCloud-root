@@ -11,6 +11,7 @@
     <modules>
         <module>eureka-common</module>
         <module>eureka-client</module>
+        <module>common-util</module>
     </modules>
 
     <properties>
