@@ -9,13 +9,18 @@
 	<packaging>jar</packaging>
 
 	<name>eureka-server</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Demo project for Spring Boot eureka-server</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>
 		</dependency>
+		<!--<dependency>
+			<groupId>com.test.starter</groupId>
+			<artifactId>db-count-starter</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>-->
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

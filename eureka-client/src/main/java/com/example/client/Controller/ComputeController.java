@@ -1,6 +1,7 @@
 package com.example.client.Controller;
 
 
+import com.example.client.Service.SimpleService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
@@ -20,11 +21,29 @@ public class ComputeController {
     private final Logger logger = Logger.getLogger(ComputeController.class);
     @Autowired
     DiscoveryClient discoveryClient;
+    @Autowired
+    SimpleService simpleService;
 
     @GetMapping("/dc")
     public String dc() {
         String services = "Services: " + discoveryClient.getServices();
         System.out.println(services);
         return services;
+    }
+
+    @GetMapping("/test")
+    public String test() {
+        simpleService.test(111);
+        return "ooo";
+    }
+    @GetMapping("/work")
+    public String work() {
+        simpleService.work(000);
+        return "ooo";
+    }
+    @GetMapping("/core")
+    public String core() {
+        simpleService.core(222);
+        return "ooo";
     }
 }
