@@ -10,9 +10,9 @@ package com.eureka.common.kafka;
  */
 public class test {
     public static void main(String[] args) {
-        int d = 89;
-        int a = 90;
-        int c = 91;
+        int d = 39;
+        int a = 40;
+        int c = 41;
         System.out.println(String.valueOf(d).hashCode());
         System.out.println(String.valueOf(a).hashCode());
         System.out.println(String.valueOf(c).hashCode());

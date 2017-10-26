@@ -24,6 +24,9 @@ public class KafkaProducer {
         //配置value的序列化类
         props.put("serializer.class", "kafka.serializer.StringEncoder");
         //配置key的序列化类
+        /**
+         * kafka.serializer.DefaultEncoder
+         */
         props.put("key.serializer.class", "kafka.serializer.StringEncoder");
 
         //request.required.acks

@@ -31,8 +31,13 @@ public class KafkaConsumer {
 
         //zk连接超时
         props.put("zookeeper.session.timeout.ms", "4000");
+        /*zk follower落后于zk leader的最长时间*/
         props.put("zookeeper.sync.time.ms", "200");
+        /**	consumer向zookeeper提交offset的频率，单位是秒 */
         props.put("auto.commit.interval.ms", "1000");
+        /** zookeeper中没有初始化的offset时，如果offset是以下值的回应： smallest：自动复位offset为smallest的offset
+         largest：自动复位offset为largest的offset ;anything  else：向consumer抛出异常
+         */
         props.put("auto.offset.reset", "smallest");
         //序列化类
         props.put("serializer.class", "kafka.serializer.StringEncoder");
