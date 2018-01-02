@@ -2,7 +2,7 @@ package com.weixin.util;
 
 /**
  * @ProjectName springcloudroot
- * @PackageName com.weixin.util
+ * @PackageName com.weixin.thread
  * @Author tanjianglong
  * @CreatedTime 2017/10/30.
  * @Description :Plase give some message
