@@ -5,7 +5,7 @@ import sun.misc.BASE64Encoder;
 
 /**
  * @ProjectName springcloudroot
- * @PackageName com.eureka.util
+ * @PackageName com.eureka.thread
  * @Author tanjianglong
  * @CreatedTime 2017/9/8.
  * @Description :Plase give some message
