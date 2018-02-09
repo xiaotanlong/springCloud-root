@@ -1,0 +1,2 @@
+com.eureka.common.spi.Log4j
+com.eureka.common.spi.Logback
