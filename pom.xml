@@ -16,6 +16,7 @@
         <module>weixin-demo</module>
         <module>mybatis-generator-gui</module>
         <module>eureka-websocket</module>
+        <module>eureka-server</module>
     </modules>
 
     <properties>
