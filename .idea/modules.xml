@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/common-util/common-util.iml" filepath="$PROJECT_DIR$/common-util/common-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-client/eureka-client.iml" filepath="$PROJECT_DIR$/eureka-client/eureka-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-common/eureka-common.iml" filepath="$PROJECT_DIR$/eureka-common/eureka-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-consumer/eureka-consumer.iml" filepath="$PROJECT_DIR$/eureka-consumer/eureka-consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/eureka-websocket/eureka-websocket.iml" filepath="$PROJECT_DIR$/eureka-websocket/eureka-websocket.iml" />
       <module fileurl="file://$PROJECT_DIR$/log-starter/log-starter.iml" filepath="$PROJECT_DIR$/log-starter/log-starter.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis-generator-gui/mybatis-generator-gui.iml" filepath="$PROJECT_DIR$/mybatis-generator-gui/mybatis-generator-gui.iml" />

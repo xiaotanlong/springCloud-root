@@ -17,6 +17,8 @@
         <module>mybatis-generator-gui</module>
         <module>eureka-websocket</module>
         <module>eureka-server</module>
+        <module>eureka-consumer</module>
+
     </modules>
 
     <properties>

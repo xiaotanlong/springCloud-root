@@ -1,76 +1,90 @@
 package com.eureka.common.redis;
-
-import com.google.common.collect.Sets;
-import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import redis.clients.jedis.BinaryJedisCluster;
 import redis.clients.jedis.HostAndPort;
+import redis.clients.jedis.JedisCluster;
+import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.JedisPoolConfig;
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @ProjectName springcloudroot
- * @PackageName com.eureka.common.redis
- * @Author tanjianglong
- * @CreatedTime 2017/8/23.
- * @Description :Plase give some message
- * 修改记录：1...;2....
+ * @author
+ * @version V1.0
+ * @Title:
+ * @Package
+ * @Description: (用一句话描述该文件做什么)
+ * @date
  */
+//配置参数读取 配置spring容器(应用上下文)
 @Configuration
+//默认启动配置
+@EnableAutoConfiguration
 public class RedisConfig {
-    @Autowired
-    private PropertiseConfig propertiseConfig;
+    private static Logger logger = Logger.getLogger(RedisConfig.class);
 
-    /*@Bean
-    public JedisPoolConfig getRedisConfig(){
-        JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
-        //设置最大实例总数
-        jedisPoolConfig.setMaxTotal(150);
-        //控制一个pool最多有多少个状态为idle(空闲的)的jedis实例。
-        jedisPoolConfig.setMaxIdle(30);
-        jedisPoolConfig.setMinIdle(10);
-        //表示当borrow(引入)一个jedis实例时，最大的等待时间，如果超过等待时间，则直接抛出JedisConnectionException；
-        jedisPoolConfig.setMaxWaitMillis(3 * 1000);
-        // 在borrow一个jedis实例时，是否提前进行alidate操作；如果为true，则得到的jedis实例均是可用的；
-        jedisPoolConfig.setTestOnBorrow(true);
-        // 在还会给pool时，是否提前进行validate操作
-        jedisPoolConfig.setTestOnReturn(true);
-        jedisPoolConfig.setTestWhileIdle(true);
-        jedisPoolConfig.setMinEvictableIdleTimeMillis(500);
-        jedisPoolConfig.setSoftMinEvictableIdleTimeMillis(1000);
-        jedisPoolConfig.setTimeBetweenEvictionRunsMillis(1000);
-        jedisPoolConfig.setNumTestsPerEvictionRun(100);
-        return jedisPoolConfig;
-    }*/
+    //获取springboot配置文件的值 (get的时候获取)
+    @Value("${spring.redis.hostName}")
+    private String host;
+    @Value("${spring.redis.password}")
+    private String password;
+    @Value("${spring.redis.timeout}")
+    private int  timeout;
+    @Value("${spring.redis.maxAttempts}")
+    private int  maxAttempts;
 
+    /**
+     * @Bean 和 @ConfigurationProperties
+     * 该功能在官方文档是没有提到的，我们可以把@ConfigurationProperties和@Bean和在一起使用。
+     * 举个例子，我们需要用@Bean配置一个Config对象，Config对象有a，b，c成员变量需要配置，
+     * 那么我们只要在yml或properties中定义了a=1,b=2,c=3，
+     * 然后通过@ConfigurationProperties就能把值注入进Config对象中
+     * @return
+     */
     @Bean
-    public BinaryJedisCluster getJedisCluster() {
-        String[] serverArray = new String[]{};
-        try {
-            serverArray = propertiseConfig.getHostName().split(",");
-        } catch (Exception e) {
+    @ConfigurationProperties(prefix = "spring.redis.pool")
+    public JedisPoolConfig getRedisConfig() {
+        JedisPoolConfig config = new JedisPoolConfig();
+        return config;
+    }
+    /**
+     * 单机连接
+     * @return
+     */
+    @Bean
+    @ConfigurationProperties(prefix = "spring.redis")
+    public JedisConnectionFactory getConnectionFactory() {
+        JedisConnectionFactory factory = new JedisConnectionFactory();
+        factory.setUsePool(true);
+        JedisPoolConfig config = getRedisConfig();
+        factory.setPoolConfig(config);
+        logger.info("JedisConnectionFactory bean init success.");
+        return factory;
+    }
 
-        }
-
-        Set<HostAndPort> nodes = Sets.newHashSet();
-        for (String ipPort : serverArray) {
-            String[] ipPortPair = ipPort.split(":");
-            nodes.add(new HostAndPort(ipPortPair[0].trim(), Integer.valueOf(ipPortPair[1].trim())));
-        }
-
-        GenericObjectPoolConfig config = new GenericObjectPoolConfig();
-        config.setMinIdle(30);
-        config.setMaxIdle(10);
-        config.setMaxTotal(150);
-        BinaryJedisCluster binaryJedisCluster = new BinaryJedisCluster(nodes,
-                3000,
-                5,
-                config);
-        return binaryJedisCluster;
+    /**
+     * 单机连接
+     * @return
+     */
+    @Bean
+    public RedisTemplate<?, ?> getRedisTemplate() {
+        JedisConnectionFactory factory = getConnectionFactory();
+        logger.info(this.host+","+factory.getHostName()+","+factory.getDatabase());
+        logger.info(this.password+","+factory.getPassword());
+        logger.info(factory.getPoolConfig().getMaxIdle());
+//        factory.setHostName(this.host);
+//        factory.setPassword(this.password);
+        RedisTemplate<?, ?> template = new StringRedisTemplate(getConnectionFactory());
+        return template;
     }
 
 }

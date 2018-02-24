@@ -9,6 +9,8 @@
         <module name="common-util" />
         <module name="eureka-client" />
         <module name="eureka-common" />
+        <module name="eureka-consumer" />
+        <module name="eureka-server" />
         <module name="eureka-websocket" />
         <module name="log-starter" />
         <module name="mybatis-generator-gui" />
@@ -19,6 +21,8 @@
       <module name="common-util" target="1.7" />
       <module name="eureka-client" target="1.7" />
       <module name="eureka-common" target="1.7" />
+      <module name="eureka-consumer" target="1.7" />
+      <module name="eureka-server" target="1.7" />
       <module name="eureka-websocket" target="1.7" />
       <module name="log-starter" target="1.7" />
       <module name="mybatis-generator-gui" target="1.8" />
