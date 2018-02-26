@@ -11,8 +11,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 /**
- * @Author Hugo.Wwg
- * @Since 2017-07-28
  */
 public class KryoSerializer implements Serializer {
 
