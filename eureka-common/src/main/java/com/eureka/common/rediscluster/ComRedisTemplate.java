@@ -38,7 +38,6 @@ public class ComRedisTemplate {
     public void set(RedisKey redisKey, Object value) {
         jedisCluster.set(redisKey.getRedisKey().getBytes(), serializer.encode(value));
         LOGGER.debug("RedisUtil:set cache key={},value={}", redisKey.getRedisKey(), value);
-
     }
 
 
