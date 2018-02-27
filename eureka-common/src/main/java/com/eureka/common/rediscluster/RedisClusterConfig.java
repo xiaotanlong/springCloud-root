@@ -13,6 +13,7 @@ import java.util.Set;
 
 import redis.clients.jedis.BinaryJedisCluster;
 import redis.clients.jedis.HostAndPort;
+import redis.clients.jedis.JedisCluster;
 
 /**
  * @author
@@ -22,7 +23,7 @@ import redis.clients.jedis.HostAndPort;
  * @Description: (用一句话描述该文件做什么)
  * @date
  */
-@Configuration
+//@Configuration
 public class RedisClusterConfig {
     private static final Logger log = LoggerFactory.getLogger(RedisClusterConfig.class);
     @Autowired
@@ -54,4 +55,31 @@ public class RedisClusterConfig {
                 config);
         return binaryJedisCluster;
     }
+
+    //单机
+    //@Bean
+    /*public JedisCluster getJedisCluster3() {
+        String[] serverArray = new String[]{};
+        try {
+            serverArray = redisProperties.getClusterNodes().split(",");
+        } catch (Exception e) {
+            log.error("redisSentinel.cache.clusterNodes 无法解析");
+        }
+
+        Set<HostAndPort> nodes = Sets.newHashSet();
+        for (String ipPort : serverArray) {
+            String[] ipPortPair = ipPort.split(":");
+            nodes.add(new HostAndPort(ipPortPair[0].trim(), Integer.valueOf(ipPortPair[1].trim())));
+        }
+        GenericObjectPoolConfig config = new GenericObjectPoolConfig();
+        config.setMinIdle(redisProperties.getMinIdle());
+        config.setMaxIdle(redisProperties.getMaxIdle());
+        config.setMaxTotal(redisProperties.getMaxActive());
+        config.setMaxIdle(redisProperties.getMaxIdle());
+        JedisCluster jedisCluster = new JedisCluster(nodes,
+                redisProperties.getCommandTimeout(),
+                redisProperties.getMaxAttempts(),
+                config);
+        return jedisCluster;
+    }*/
 }

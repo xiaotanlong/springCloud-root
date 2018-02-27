@@ -1,6 +1,6 @@
 package com.eureka.common.rediscluster;
-import com.eureka.common.serialize.Serializer;
-import com.eureka.common.serialize.SerializerFactory;
+import com.eureka.common.rediscluster.serialize.Serializer;
+import com.eureka.common.rediscluster.serialize.SerializerFactory;
 import com.eureka.common.utils.RedisKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +16,7 @@ import redis.clients.jedis.BinaryJedisCluster;
  * @Description: (用一句话描述该文件做什么)
  * @date
  */
-@Component
+//@Component("comRedisTemplate")
 public class ComRedisTemplate {
     private static final Logger LOGGER    = LoggerFactory.getLogger(ComRedisTemplate.class);
     @Autowired
@@ -26,7 +26,7 @@ public class ComRedisTemplate {
 
     private static final String KEY_SPLIT = ":"; //用于隔开缓存前缀与缓存键值
 
-    private Serializer serializer = SerializerFactory.getSerializer();
+    //private Serializer serializer = SerializerFactory.getSerializer();
 
 
     /**
@@ -36,7 +36,7 @@ public class ComRedisTemplate {
      * @param value    缓存value
      */
     public void set(RedisKey redisKey, Object value) {
-        jedisCluster.set(redisKey.getRedisKey().getBytes(), serializer.encode(value));
+        jedisCluster.set(redisKey.getRedisKey().getBytes(), value.toString().getBytes());
         LOGGER.debug("RedisUtil:set cache key={},value={}", redisKey.getRedisKey(), value);
     }
 
