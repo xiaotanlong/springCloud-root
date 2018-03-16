@@ -13,8 +13,9 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 //自定义扫面的包
 @ComponentScan(basePackages = {
-		"com.eureka.common.redis",
+		//"com.eureka.common.redis",
 		//"com.eureka.common.rediscluster",
+		"com.eureka.common.redisOneNoPool",
 		"com.example.consumer.*"
 })
 @EnableCaching//开启缓存

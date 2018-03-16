@@ -13,6 +13,6 @@ import org.springframework.stereotype.Component;
  * @date
  */
 //@Component("consumerRedisTemplate")
-public class ConsumerRedisTemplate extends ComRedisTemplate {
+public class ConsumerRedisTemplate  {
     public static String Consumer_prefix  = "Consumer";
 }
