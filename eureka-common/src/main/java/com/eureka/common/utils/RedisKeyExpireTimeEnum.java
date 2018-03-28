@@ -1,9 +1,6 @@
 package com.eureka.common.utils;
 
-/**
- * @Author Hugo.Wwg
- * @Since 2017-06-16
- */
+
 public enum RedisKeyExpireTimeEnum {
 
     SECONDS_OF_ONE_MINUTE(60),

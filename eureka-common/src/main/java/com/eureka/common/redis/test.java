@@ -110,6 +110,33 @@ public class test {
         KeyOperate();
     }
     public static void main(String[] args) {
-        new test().show();
+        //new test().show();
+        List<String> list = new ArrayList<String>(){{add("222");add("3333");}};
+        list.add("444");
+        List<String> list2 = new ArrayList<String>(){/* (non-Javadoc)
+		 * @see java.util.ArrayList#add(int, java.lang.Object)
+		 */
+
+            @Override
+            public void add(int index, String element) {
+                // TODO Auto-generated method stub
+                System.out.println(element + "------");
+                tt(element);
+                //super.add(index, element);
+            }
+
+            public void tt(String element){
+                System.out.println(element + "------++");
+            }
+        };
+        int i = 0;
+        for (String ss : list){
+            list2.add(i++,ss);
+            //System.out.println(ss);
+        }
+        for (String ss : list2){
+            //list2.tt(ss);
+            System.out.println(ss + "----------------");
+        }
     }
 }

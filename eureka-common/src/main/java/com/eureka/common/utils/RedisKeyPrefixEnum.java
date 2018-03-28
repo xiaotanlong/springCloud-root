@@ -1,9 +1,6 @@
 package com.eureka.common.utils;
 
-/**
- * @Author Hugo.Wwg
- * @Since 2017-06-16
- */
+
 public enum RedisKeyPrefixEnum {
 
     PAY_KEY("pay:", "pay 模块 redis key 前缀"),

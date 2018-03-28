@@ -6,11 +6,6 @@ import org.springframework.util.StringUtils;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
-
-/**
- * @Author Hugo.Wwg
- * @Since 2017-06-16
- */
 public class RedisKey implements Serializable {
 
     private static final Logger logger = LoggerFactory.getLogger(RedisKey.class);
