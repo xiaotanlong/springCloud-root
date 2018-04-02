@@ -1,10 +1,9 @@
-package learn.aliyun;
+package learn.qbs;
 
 import java.util.Arrays;
 
 /**
  * QpsController
- *
  */
 public class QpsController {
 
@@ -18,7 +17,7 @@ public class QpsController {
 
     private final Object lock = new Object();
 
-    public QpsController(int qpsLimit){
+    public QpsController(int qpsLimit) {
         this.qps = qpsLimit;
         this.period = 1000;
         this.accessWindow = new Long[this.qps];
@@ -27,11 +26,9 @@ public class QpsController {
     }
 
     //实现control的具体逻辑   可以任意增加个人认为的必要函数
-    public  void control() {
-        while (true)
-        {
-            if (this.isPass())
-            {
+    public void control() {
+        while (true) {
+            if (this.isPass()) {
                 break;
             }
         }

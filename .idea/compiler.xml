@@ -18,16 +18,16 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="common-util" target="1.7" />
-      <module name="eureka-client" target="1.7" />
-      <module name="eureka-common" target="1.7" />
+      <module name="common-util" target="1.8" />
+      <module name="eureka-client" target="1.8" />
+      <module name="eureka-common" target="1.8" />
       <module name="eureka-consumer" target="1.7" />
       <module name="eureka-server" target="1.7" />
-      <module name="eureka-websocket" target="1.7" />
-      <module name="log-starter" target="1.7" />
+      <module name="eureka-websocket" target="1.8" />
+      <module name="log-starter" target="1.8" />
       <module name="mybatis-generator-gui" target="1.8" />
-      <module name="springcloud-root" target="1.7" />
-      <module name="weixin-demo" target="1.7" />
+      <module name="springcloud-root" target="1.8" />
+      <module name="weixin-demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,8 +1,8 @@
-package learn.aliyun;
+package learn.qbs;
 
 /**
  * Main
- *
+ * QPS：queries per second ：每秒的请求数
  */
 public class Main {
 

@@ -1,4 +1,4 @@
-package learn.aliyun;
+package learn.qbs;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
