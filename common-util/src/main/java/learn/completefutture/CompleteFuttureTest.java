@@ -66,6 +66,15 @@ public class CompleteFuttureTest {
      * @throws ExecutionException
      * @throws InterruptedException
      * @throws IOException
+     * 有时你想要看到信号发生故障的情况，如你所知Future对象可以处理它所包含的结果或异常。
+     * 如果你想进一步传递一些异常，可以用CompletableFuture.completeExceptionally(ex)
+     * (或者用obtrudeException(ex)这样更强大的方法覆盖前面的异常)。
+     * completeExceptionally()也能解锁所有等待的客户端，但这一次从get()抛出异常。说到get()，
+     * 也有CompletableFuture.join()方法在错误处理方面有着细微的变动。
+     * 但总体上，它们都是一样的。
+     * 最后也有CompletableFuture.getNow(valueIfAbsent)方法没有阻塞但是如果Future还没完成将返回默认值，
+     * 这使得当构建那种我们不想等太久的健壮系统时非常有用。
+     * 最后static的方法是用completedFuture(value)来返回已经完成Future的对象，当测试或者写一些适配器层时可能非常有用。
      */
     public  void CompletableFutureTest() throws ExecutionException, InterruptedException, IOException {
         final CompletableFuture<Integer> f = compute();
