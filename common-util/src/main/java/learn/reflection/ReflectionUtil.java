@@ -67,7 +67,7 @@ public class ReflectionUtil {
 
     public static void main(String[] args) throws Exception{
         System.out.println(publicMethodInvoke("learn.reflection.Student","say",String.class,"rrrrr"));
-        /*ClassLoader loader = ClassLoader.getSystemClassLoader();
+        ClassLoader loader = ClassLoader.getSystemClassLoader();
         Class ss = loader.loadClass("learn.reflection.Student");
         System.out.println("name-----------" + ss.getName());
         System.out.println("CanonicalName-----------" + ss.getCanonicalName());
@@ -91,6 +91,6 @@ public class ReflectionUtil {
                     System.out.println("    PType---" + p.getType() );
                 }
             }
-        }*/
+        }
     }
 }
