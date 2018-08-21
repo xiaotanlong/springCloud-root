@@ -1,0 +1,15 @@
+Ribbon 是负载均衡器 ，它提供了很多负载均衡算法，例如轮询、随机等，在配置服务提供者地址后，
+       可以将服务消费者请求均匀的分发
+修改Controller，请求地址修改为 http://server-name/user/ ，当 Ribbon 和 Eureka 配合使用时，
+       会自动将虚拟主机名映射成微服务的网络地址，并注入了 LoadBalancerClient 输出当前选择的微服务节点
+
+
+
+@EnableDiscoveryClient :注解用来将当前应用加入到服务治理体系中。
+    可以看到这里，我们注入了LoadBalancerClient和RestTemplate，并在/consumer接口的实现中，
+    先通过loadBalancerClient的choose函数来负载均衡的选出一个eureka-client的服务实例，
+    这个服务实例的基本信息存储在ServiceInstance中，
+    然后通过这些对象中的信息拼接出访问/dc接口的详细地址，
+    最后再利用RestTemplate对象实现对服务提供者接口的调用。
+@LoadBalanced : 为RestTemplate增加@LoadBalanced注解
+    方便我们对RestTemplate添加一个LoadBalancerClient，以实现客户端负载均衡

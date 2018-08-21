@@ -1,0 +1,12 @@
+Spring Cloud Feign
+定义：
+  Spring Cloud Feign是一套基于Netflix Feign实现的声明式服务调用客户端。
+  它使得编写Web服务客户端变得更加简单。
+  我们只需要通过创建接口并用注解来配置它既可完成对Web服务接口的绑定。
+  它具备可插拔的注解支持，包括Feign注解、JAX-RS注解。
+  它也支持可插拔的编码器和解码器。
+  Spring Cloud Feign还扩展了对Spring MVC注解的支持，同时还整合了Ribbon和Eureka来提供均衡负载的HTTP客户端实现。
+
+使用：
+    通过@EnableFeignClients注解开启扫描Spring Cloud Feign客户端的功能
+    使用@FeignClient注解来指定这个接口所要调用的服务名称，接口中定义的各个函数使用Spring MVC的注解就可以来绑定服务提供方的REST接口

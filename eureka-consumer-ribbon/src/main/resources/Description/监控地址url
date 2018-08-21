@@ -1,0 +1,139 @@
+ip  + 配置的：actuator暴露接口的前缀 + 参数
+
+HTTP方法	路径	            描述	鉴权
+GET	        /autoconfig         查看自动配置的使用情况	true
+GET	        /configprops	    查看配置属性，包括默认配置	true
+GET	        /beans	            查看bean及其关系列表	true
+GET	        /dump	            打印线程栈	true
+GET	        /env	            查看所有环境变量	true
+GET	        /env/{name}	        查看具体变量值	true
+GET	        /health	            查看应用健康指标	false
+GET	        /info	            查看应用信息（需要自己在application.properties里头添加信息，比如info.contact.email=easonjim@163.com）	false
+GET	        /mappings	        查看所有url映射	true
+GET	        /metrics	        查看应用基本指标	true
+GET	        /metrics/{name}	    查看具体指标	true
+POST	    /shutdown	        关闭应用（要真正生效，得配置文件开启endpoints.shutdown.enabled: true）	true
+GET	        /trace	            查看基本追踪信息	true
+
+http://127.0.0.1:11111/admin/metrics
+{
+	"mem": 464332,//内存大小
+	"mem.free": 193013,//内存剩余大小
+	"processors": 4,//处理器数量
+	"instance.uptime": 2507749,
+	"uptime": 2511026,
+	"systemload.average": -1.0,
+	"heap.committed": 409088,
+	"heap.init": 129024,
+	"heap.used": 216074,
+	"heap": 1817088,
+	"nonheap.committed": 56600,
+	"nonheap.init": 2496,
+	"nonheap.used": 55245,
+	"nonheap": 0,
+	"threads.peak": 67,
+	"threads.daemon": 52,
+	"threads.totalStarted": 88,
+	"threads": 55,//线程
+	"classes": 7990,
+	"classes.loaded": 7990, //加载的类
+	"classes.unloaded": 0, //没加载的类
+	"gc.ps_scavenge.count": 10,
+	"gc.ps_scavenge.time": 181,
+	"gc.ps_marksweep.count": 2,
+	"gc.ps_marksweep.time": 113,
+	"counter.servo.eurekaclient.transport.connectionerrors": 0,
+	"counter.servo.eurekaclient.transport.request": 0,
+	"normalized.servo.eurekaclient.transport.latency.totaltime": 0.5520682666666668,
+	"normalized.servo.eurekaclient.transport.latency.count": 0.03333333333333333,
+	"gauge.servo.eurekaclient.transport.latency.min": 12.554248999999999,
+	"gauge.servo.eurekaclient.transport.latency.max": 20.569847,
+	"gauge.servo.eurekaclient.transport.currentsessionduration": 1126346,
+	"gauge.servo.eurekaclient.registry.lastupdatesec_00480": 0,
+	"normalized.servo.eureka-connection-cleaner-time.totaltime": 6.801833333333333E-4,
+	"normalized.servo.eureka-connection-cleaner-time.count": 0.03333333333333333,
+	"gauge.servo.eureka-connection-cleaner-time.min": 0.016387,
+	"gauge.servo.eureka-connection-cleaner-time.max": 0.024423999999999998,
+	"counter.servo.eureka-connection-cleaner-failure": 0,
+	"gauge.servo.eurekaclient.resolver.lastloadtimestamp": 106616,
+	"gauge.servo.eurekaclient.resolver.endpointssize": 1,
+	"gauge.servo.eurekaclient.registry.lastupdatesec_00015": 1,
+	"gauge.servo.eurekaclient.registration.lastheartbeatsec_00015": 1,
+	"gauge.servo.eurekaclient.transport.quarantinesize": 0,
+	"gauge.servo.eurekaclient.registration.lastheartbeatsec_00480": 0,
+	"gauge.servo.eurekaclient.registry.lastupdatesec_00030": 0,
+	"gauge.servo.eurekaclient.registration.lastheartbeatsec_00030": 0,
+	"counter.servo.timeouts": 0,
+	"counter.servo.rejectedexecutions": 0,
+	"counter.servo.throwables": 0,
+	"gauge.servo.threadpoolused": 0,
+	"gauge.servo.eurekaclient.registration.lastheartbeatsec_00240": 0,
+	"gauge.servo.eurekaclient.registry.lastupdatesec_00060": 0,
+	"counter.servo.discoveryclient_reconcilehashcodemismatch": 0,
+	"normalized.servo.discoveryclient_fetchregistry.totaltime": 0.3964361166666666,
+	"normalized.servo.discoveryclient_fetchregistry.count": 0.03333333333333333,
+	"gauge.servo.discoveryclient_fetchregistry.min": 11.313231,
+	"gauge.servo.discoveryclient_fetchregistry.max": 12.472935999999999,
+	"counter.servo.discoveryclient_reregister": 0,
+	"gauge.servo.eurekaclient.registration.lastsuccessfulheartbeattimeperiod": 15606,
+	"gauge.servo.eurekaclient.registry.lastsuccessfulregistryfetchtimeperiod": 15899,
+	"gauge.servo.eurekaclient.registry.localregistrysize": 4,
+	"gauge.servo.eurekaclient.registry.lastupdatesec_00240": 0,
+	"gauge.servo.eurekaclient.registration.lastheartbeatsec_00060": 0,
+	"gauge.servo.eurekaclient.registry.lastupdatesec_00120": 0,
+	"gauge.servo.eurekaclient.registration.lastheartbeatsec_00120": 0,
+	"counter.servo.discoveryclient-httpclient_reuse": 77,
+	"counter.servo.discoveryclient-httpclient_createnew": 91,
+	"counter.servo.discoveryclient-httpclient_request": 168,
+	"counter.servo.discoveryclient-httpclient_release": 168,
+	"counter.servo.discoveryclient-httpclient_delete": 90,
+	"normalized.servo.discoveryclient-httpclient_requestconnectiontimer.totaltime": 0.003926466666666666,
+	"normalized.servo.discoveryclient-httpclient_requestconnectiontimer.count": 0.06666666666666667,
+	"gauge.servo.discoveryclient-httpclient_requestconnectiontimer.min": 0.012058,
+	"gauge.servo.discoveryclient-httpclient_requestconnectiontimer.max": 0.129852,
+	"normalized.servo.discoveryclient-httpclient_createconnectiontimer.totaltime": 9.945E-4,
+	"normalized.servo.discoveryclient-httpclient_createconnectiontimer.count": 0.03333333333333333,
+	"gauge.servo.discoveryclient-httpclient_createconnectiontimer.min": 0.016694999999999998,
+	"gauge.servo.discoveryclient-httpclient_createconnectiontimer.max": 0.042975,
+	"gauge.servo.connectioncount": 1,
+	"httpsessions.max": -1,
+	"httpsessions.active": 0
+}
+http://127.0.0.1:11111/admin/health
+{
+	"description": "Spring Cloud Eureka Discovery Client",
+	"status": "UP",//状态
+	"discoveryComposite": {
+		"description": "Spring Cloud Eureka Discovery Client",
+		"status": "UP",
+		"discoveryClient": {
+			"description": "Spring Cloud Eureka Discovery Client",
+			"status": "UP",
+			"services": ["eureka-consumer-ribbon", "eureka-consumer", "eureka-client"]
+		},
+		"eureka": {
+			"description": "Remote status from Eureka server",
+			"status": "UP",
+			"applications": {
+				"EUREKA-CONSUMER-RIBBON": 1,
+				"EUREKA-CONSUMER": 2,
+				"EUREKA-CLIENT": 1
+			}
+		}
+	},
+	"diskSpace": {
+		"status": "UP",
+		"total": 446412353536,
+		"free": 421357944832,
+		"threshold": 10485760
+	},
+	"refreshScope": {
+		"status": "UP"
+	},
+	"hystrix": {
+		"status": "UP"
+	}
+}
+
+当然这些监控参数只是一个系统给的参数模型。如果需要更直观和非开发人员能看得懂，
+则需要开发一个单独的监控平台，调用服务系统参数，然后自己组装页面

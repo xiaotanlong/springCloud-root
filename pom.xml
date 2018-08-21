@@ -19,6 +19,8 @@
         <module>eureka-server</module>
         <module>eureka-consumer</module>
         <module>xiangxue</module>
+        <module>eureka-consumer-feign</module>
+        <module>eureka-consumer-ribbon</module>
     </modules>
 
     <properties>
@@ -91,14 +93,14 @@
                 </executions>
             </plugin>
             <!-- jdk 版本-->
-            <!--<plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
-            </plugin>-->
+            </plugin>
         </plugins>
 
     </build>

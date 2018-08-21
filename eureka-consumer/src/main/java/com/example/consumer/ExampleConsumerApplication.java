@@ -15,14 +15,14 @@ import org.springframework.web.client.RestTemplate;
 @ComponentScan(basePackages = {
 		//"com.eureka.common.redis",
 		//"com.eureka.common.rediscluster",
-		"com.eureka.common.redisOneNoPool",
+		//"com.eureka.common.redisOneNoPool",
 		"com.example.consumer.*"
 })
 @EnableCaching//开启缓存
 public class ExampleConsumerApplication {
 
 	/**
-	 * 调用其他服务
+	 * 使用第三方的组件
 	 * @return
 	 */
 	@Bean

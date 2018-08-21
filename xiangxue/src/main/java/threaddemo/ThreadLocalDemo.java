@@ -42,6 +42,7 @@ public class ThreadLocalDemo {
         for (Thread thread:threads) {
             thread.start();
         }
+
     }
 
     public static void main(String [] args){

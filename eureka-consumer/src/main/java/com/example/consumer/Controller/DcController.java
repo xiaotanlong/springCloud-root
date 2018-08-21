@@ -1,16 +1,12 @@
 package com.example.consumer.Controller;
 
-import com.eureka.common.redisOneNoPool.RedisBusiness;
+//import com.eureka.common.redisOneNoPool.RedisBusiness;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @ProjectName springcloudroot
@@ -30,6 +26,10 @@ public class DcController {
     //private ComRedisTemplate comRedisTemplate;
 
 
+    /**
+     * 消费测试类
+     * @return
+     */
     @GetMapping("/consumer")
     public String dc() {
         ServiceInstance serviceInstance = loadBalancerClient.choose("eureka-client");
@@ -67,7 +67,7 @@ public class DcController {
         return "111111" + redisBusiness.get("test_jedis_Stand-alone");
     }*/
 
-    @Autowired
+    /*@Autowired
     private RedisBusiness redisBusiness;
 
     @GetMapping("/jedisStandAloneTest")
@@ -78,5 +78,5 @@ public class DcController {
         //jedisCluster.del("test_jedis_cluster");
 
         return "111111" + redisBusiness.get("test_jedis_Stand-alone");
-    }
+    }*/
 }

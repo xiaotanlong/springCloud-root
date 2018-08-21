@@ -26,11 +26,11 @@
 
 	<dependencies>
 
-		<dependency>
+		<!--<dependency>
 			<groupId>springcloud-root</groupId>
 			<artifactId>eureka-common</artifactId>
 			<version>1.0-SNAPSHOT</version>
-		</dependency>
+		</dependency>-->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

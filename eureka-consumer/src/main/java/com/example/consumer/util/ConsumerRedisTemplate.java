@@ -1,6 +1,6 @@
 package com.example.consumer.util;
 
-import com.eureka.common.rediscluster.ComRedisTemplate;
+
 import org.springframework.stereotype.Component;
 
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @version V1.0
  * @Title:
  * @Package
- * @Description: (用一句话描述该文件做什么)
+ * @Description: test redis
  * @date
  */
 //@Component("consumerRedisTemplate")
