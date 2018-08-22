@@ -1,0 +1,45 @@
+服务消费者就通过HystrixCommand注解中指定的降级逻辑进行执行，因此该请求的结果返回了fallback。
+    这样的机制，对自身服务起到了基础的保护，同时还为异常情况提供了自动的服务降级切换机制。
+
+逻辑说明：
+https://www.jianshu.com/p/f49b5628e8e7
+熔断的逻辑：
+   1.默认熔断开关是关闭的
+        -> 请求过来  正常 ？ “还是关闭” ：（是否达到开关阀值 ？ 打开 ：关闭）
+   2.当熔断开关是打开的时（只是会有一个）
+        -> 请求过来  while(1 = 1) 不通过
+   3.当熔断时间窗结束-> 开关变成半开状态   ：此时只允许一个请求通过
+        -> 请求过来   请求执行成功 ？熔断器恢复到关闭状态 ：熔断器恢复到打开状态
+
+Hystrix的Command  相关
+   创建->熔断是否开启->线程池是否处理->执行接口请求------
+   每一个Command 拥有一个线程池
+   不同的业务场景需要不同的Command类来实现
+
+
+Spring Cloud Config与Spring Cloud Bus
+    使用Spring Cloud Config构建的配置服务器，天然就支持对微服务应用配置信息的版本管理
+
+
+
+
+
+Feign中使用断路器
+    Feign是自带断路器的，在D版本的Spring Cloud中，
+    它没有默认打开。需要在配置文件中配置打开它，在配置文件加以下代码：feign.hystrix.enabled=true
+
+    @FeignClient(value = "service-hi",fallback = SchedualServiceHiHystric.class)
+    public interface SchedualServiceHi {
+        @RequestMapping(value = "/hi",method = RequestMethod.GET)
+        String sayHiFromClientOne(@RequestParam(value = "name") String name);
+    }
+
+    SchedualServiceHiHystric需要实现SchedualServiceHi 接口，并注入到Ioc容器中，代码如下：
+
+    @Component
+    public class SchedualServiceHiHystric implements SchedualServiceHi {
+        @Override
+        public String sayHiFromClientOne(String name) {
+            return "sorry "+name;
+        }
+    }

@@ -1,0 +1,8 @@
+依赖隔离的实现
+    Hystrix使用 Docker中“舱壁模式”模式实现线程池的隔离，它会为每一个Hystrix命令创建一个独立的线程池，
+    这样就算某个在Hystrix命令包装下的依赖服务出现延迟过高的情况，
+    也只是对该依赖服务的调用产生影响，而不会拖慢其他的服务。
+性能相关的配置：
+    hystrix.command.default.execution.isolation.strategy
+    隔离策略，默认是Thread, 可选Thread｜Semaphore
+    线程池的大小  和 信号量的数量  根据并发数来配置

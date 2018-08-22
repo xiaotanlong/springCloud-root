@@ -29,9 +29,10 @@ public class ComputeController {
     SimpleService simpleService;
 
     @GetMapping("/dc")
-    public String dc() {
+    public String dc() throws InterruptedException{
         String services = "Services: " + discoveryClient.getServices();//获取当前注册的服务
         System.out.println(services);
+        //Thread.sleep(5000L);
         return services;
     }
 
