@@ -24,5 +24,6 @@ public class LockDeom {
 
     public synchronized void add2(){
             a++;
+
     }
 }
