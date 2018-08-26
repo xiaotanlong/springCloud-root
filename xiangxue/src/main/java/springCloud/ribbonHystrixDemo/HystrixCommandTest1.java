@@ -1,4 +1,4 @@
-package ribbonHystrixDemo;
+package springCloud.ribbonHystrixDemo;
 
 import java.util.Iterator;
 import java.util.Map;

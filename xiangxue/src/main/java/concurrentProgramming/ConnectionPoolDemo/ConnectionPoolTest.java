@@ -1,4 +1,4 @@
-package ConnectionPoolDemo;
+package concurrentProgramming.ConnectionPoolDemo;
 
 import java.sql.Connection;
 import java.util.concurrent.CountDownLatch;

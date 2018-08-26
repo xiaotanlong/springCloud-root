@@ -1,4 +1,4 @@
-package threaddemo;
+package concurrentProgramming.threaddemo;
 
 /**
  * @author 0217319

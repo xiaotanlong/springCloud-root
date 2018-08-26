@@ -1,4 +1,4 @@
-package threaddemo;
+package concurrentProgramming.threaddemo;
 
 import java.util.HashMap;
 import java.util.Map;

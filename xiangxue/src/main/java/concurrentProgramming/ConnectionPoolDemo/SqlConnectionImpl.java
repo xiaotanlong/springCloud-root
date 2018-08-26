@@ -1,4 +1,4 @@
-package ConnectionPoolDemo;
+package concurrentProgramming.ConnectionPoolDemo;
 
 import java.sql.*;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package ribbonHystrixDemo;
+package springCloud.ribbonHystrixDemo;
 
 /**
  * @author 0217319
