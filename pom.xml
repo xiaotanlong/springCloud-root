@@ -22,7 +22,8 @@
         <module>eureka-consumer-feign</module>
         <module>eureka-consumer-ribbon</module>
         <module>eureka-consumer-ribbon-hystrix</module>
-		<module>eureka-hystrix-dashboard</module>	
+		<module>eureka-hystrix-dashboard</module>
+        <module>tomcat</module>
     </modules>
 
     <properties>

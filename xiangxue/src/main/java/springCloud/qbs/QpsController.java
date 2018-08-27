@@ -1,4 +1,4 @@
-package learn.qbs;
+package springCloud.qbs;
 
 import java.util.Arrays;
 
@@ -40,7 +40,7 @@ public class QpsController {
         long curTime = System.currentTimeMillis();
         synchronized (lock) {
             //当前时间 大于 最早成功的那一个  时间点  则 返回true,并将改时间点重置为最新（当前时间）
-            if (curTime >= period + accessWindow[curPosition]) {
+            if (curTime - period >= accessWindow[curPosition]) {
                 accessWindow[curPosition++] = curTime;
                 curPosition = curPosition % qps;
                 return true;
