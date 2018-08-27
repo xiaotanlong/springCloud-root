@@ -23,7 +23,7 @@
         <module>eureka-consumer-ribbon</module>
         <module>eureka-consumer-ribbon-hystrix</module>
 		<module>eureka-hystrix-dashboard</module>
-        <module>tomcat</module>
+        <module>middleware-tomcat</module>
     </modules>
 
     <properties>
