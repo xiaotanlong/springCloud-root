@@ -23,7 +23,7 @@ public class Main {
                     }
                 }
             };
-            t.setName("worker-threads-" + i);
+            t.setName("worker-threads- " + i);
             t.start();
         }
 
