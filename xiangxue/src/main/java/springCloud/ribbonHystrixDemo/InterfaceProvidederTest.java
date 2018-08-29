@@ -13,10 +13,10 @@ public class InterfaceProvidederTest {
     }
 
     //随机休眠时间
-    public static String getMsgRandomSleep(Integer num) throws InterruptedException {
+    public static String getMsgRandomSleep(Integer num,String threadName) throws InterruptedException {
         Integer waitTime = num % 20;
         Thread.sleep(waitTime * 1000);
-        return "getMsgRandomSleep----我被线程：" +Thread.currentThread().getName()+ "调用了";
+        return "getMsgRandomSleep----我被线程：" + threadName + "调用了";
     }
 
     //固定休眠时间

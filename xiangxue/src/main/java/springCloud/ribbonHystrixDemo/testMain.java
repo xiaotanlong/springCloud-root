@@ -26,9 +26,9 @@ public class testMain {
 
         Thread.sleep(10 * 1000);
 
-        for (int i=20 ;i < 25 ;i++){
+        /*for (int i=20 ;i < 25 ;i++){
             new WorkerThred(i).start();
-        }
+        }*/
         //count.await();
         System.out.println("main is end");
     }

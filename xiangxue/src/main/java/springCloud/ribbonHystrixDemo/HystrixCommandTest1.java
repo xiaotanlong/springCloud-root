@@ -32,26 +32,28 @@ public class HystrixCommandTest1 {
 
     //调用
     public static String callInterface() throws InterruptedException, ExecutionException {
+        String threadName = Thread.currentThread().getName();
         if(semaphore.availablePermits() > 0 && !(hystrixStatus == 2)){
             Integer parm = (int)(Math.random()*9);
             //半开状态处理
             if(hystrixStatus == 3){
                 if(onHalfOpenIsPassed.get()){
                     return getFallback() + "半开状态--一个通过已经执行";
+                }else{
+                    onHalfOpenIsPassed.set(true);
                 }
-                System.out.println("半开状态-----------执行" + Thread.currentThread().getName() + " hystrixStatus is :"+ hystrixStatus);
+                System.out.println("半开状态-----------执行" + threadName + " hystrixStatus is :"+ hystrixStatus);
                 semaphore.acquire();
-                FutureTask<String> work = new FutureTask<String>(new Work(parm));
+                FutureTask<String> work = new FutureTask<String>(new Work(parm,threadName));
                 new Thread(work).start();
                 String resurt = "";
-                onHalfOpenIsPassed.set(true);
                 try {
                     resurt = work.get(overTime, TimeUnit.MILLISECONDS);
                     hystrixStatus = 1;
-                    System.out.println("半开状态->关闭" + Thread.currentThread().getName() + ":调用接口成功----parm is :"+ parm );
+                    System.out.println("*****半开状态->关闭" + threadName + ":调用接口成功----parm is :"+ parm );
                 } catch (TimeoutException e) {
                     //e.printStackTrace();
-                    System.out.println("*****半开状态->打开" + Thread.currentThread().getName() + ":调用接口超时----parm is :"+ parm );
+                    System.out.println("*****半开状态->打开" + threadName + ":调用接口超时----parm is :"+ parm );
                     resurt = getFallback();
                     //Hystrixdata.put(System.currentTimeMillis(),resurt);
                     hystrixStatus = 2;
@@ -63,16 +65,16 @@ public class HystrixCommandTest1 {
                 }
                 return resurt;
             }else{//关闭状态处理
-                System.out.println("关闭状态-----------执行" + Thread.currentThread().getName() + " hystrixStatus is :"+ hystrixStatus);
+                System.out.println("关闭状态-----------执行" + threadName + "--hystrixStatus is :"+ hystrixStatus + " parm : " + parm);
                 semaphore.acquire();
-                FutureTask<String> work = new FutureTask<String>(new Work(parm));
+                FutureTask<String> work = new FutureTask<String>(new Work(parm,threadName));
                 new Thread(work).start();
                 String resurt = "";
                 try {
                     resurt = work.get(overTime, TimeUnit.MILLISECONDS);
                 } catch (TimeoutException e) {
                     //e.printStackTrace();
-                    System.out.println("*****关闭状态---" + Thread.currentThread().getName() + ":调用接口超时----parm is :"+ parm + " hystrixStatus is :"+ hystrixStatus);
+                    System.out.println("*****关闭状态---" + threadName + ":调用接口超时----parm is :"+ parm + " hystrixStatus is :"+ hystrixStatus);
                     resurt = getFallback();
                     Hystrixdata.put(System.currentTimeMillis(),resurt);
                 }finally {
@@ -102,12 +104,18 @@ public class HystrixCommandTest1 {
     //另起线程调用接口
     public static class Work<String> implements Callable<String>{
         private Integer parm;
+        private String threadName;
+        public Work(Integer parm,String threadName){
+            this.parm = parm;
+            this.threadName = threadName;
+        }
         public Work(Integer parm){
             this.parm = parm;
         }
+
         @Override
         public String call() throws Exception {
-            return (String) InterfaceProvidederTest.getMsgRandomSleep(parm);
+            return (String) InterfaceProvidederTest.getMsgRandomSleep(parm,threadName.toString());
         }
     }
 
@@ -127,6 +135,7 @@ public class HystrixCommandTest1 {
                     }
                     if((System.currentTimeMillis() - HystrixFuseTime) > HystrixFuseSpacingTime){
                         hystrixStatus = 3;//开关设置为半开
+                        onHalfOpenIsPassed.set(false);//设置尝试恢复位
                         System.out.println("---------------" + "开启熔断修复成功");
                         break;
                     }
