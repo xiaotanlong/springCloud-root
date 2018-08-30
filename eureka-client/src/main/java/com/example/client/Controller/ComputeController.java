@@ -14,11 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Author tanjianglong
  * @CreatedTime 2017/8/10.
  * @Description :Plase give some message
- * 修改记录：
- * 1 可以看到这里，我们注入了LoadBalancerClient和RestTemplate，并在/consumer接口的实现中，
- * 先通过loadBalancerClient的choose函数来负载均衡的选出一个eureka-client的服务实例，
- * 这个服务实例的基本信息存储在ServiceInstance中，然后通过这些对象中的信息拼接出访问/dc接口的详细地址，
- * 最后再利用RestTemplate对象实现对服务提供者接口的调用。
+ *
  */
 @RestController
 public class ComputeController {
@@ -32,7 +28,7 @@ public class ComputeController {
     public String dc() throws InterruptedException{
         String services = "Services: " + discoveryClient.getServices();//获取当前注册的服务
         System.out.println(services);
-        //Thread.sleep(5000L);
+        Thread.sleep(2000L);
         return services;
     }
 
