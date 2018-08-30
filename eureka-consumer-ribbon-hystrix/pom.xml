@@ -37,12 +37,6 @@
 			<artifactId>spring-cloud-starter-ribbon</artifactId>
 		</dependency>
 
-		<!-- 接口验证 -->
-		<!--<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>-->
-
 		<!-- 服务降级，断路由相关 -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

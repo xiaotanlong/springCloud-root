@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class DcController {
     @Autowired
-    DcClient dcClient;
+    private DcClient dcClient;
 
 
     @GetMapping("/consumer")

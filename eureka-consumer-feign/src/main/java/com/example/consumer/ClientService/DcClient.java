@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
  * 1：eureka-client 代表的是提供服务的id
  * 2：interface  是服务调用一个其他服务的工具类
  */
-@FeignClient("eureka-client")
+@FeignClient(value = "eureka-client",fallback = DcClientImpl.class )
 public interface DcClient {
 
     @GetMapping("/dc")
-    String consumer();
+    public String consumer();
 }

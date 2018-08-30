@@ -129,7 +129,7 @@ public class HystrixCommandTest1 {
                 if(hystrixStatus == 2){
                     //做个休眠
                     try {
-                        Thread.sleep(1);
+                        Thread.sleep(50);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
