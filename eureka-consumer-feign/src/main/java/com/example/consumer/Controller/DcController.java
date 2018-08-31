@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
  * @PackageName com.example.consumer.Controller
  * @Author tanjianglong
  * @CreatedTime 2017/8/22.
- * @Description :Plase give some message
- * 修改记录：1...;2....
+ * @Description : eureka-consumer-feign  demo
+ * 修改记录：
+ * 1:直接调用  http
+ * 2：提供熔断 降级服务
  */
 @RestController
 public class DcController {

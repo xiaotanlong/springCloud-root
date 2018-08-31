@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * 修改记录：
  * 1：eureka-client 代表的是提供服务的id
  * 2：interface  是服务调用一个其他服务的工具类
+ * 3:fallback  是使用熔断器的配置，提供一个发生熔断时的降级服务
  */
 @FeignClient(value = "eureka-client",fallback = DcClientImpl.class )
 public interface DcClient {
