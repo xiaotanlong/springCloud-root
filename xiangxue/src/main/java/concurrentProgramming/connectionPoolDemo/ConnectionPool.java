@@ -1,4 +1,4 @@
-package concurrentProgramming.ConnectionPoolDemo;
+package concurrentProgramming.connectionPoolDemo;
 
 import java.sql.Connection;
 import java.util.LinkedList;

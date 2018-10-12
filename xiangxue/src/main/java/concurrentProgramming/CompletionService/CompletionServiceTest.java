@@ -6,7 +6,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * @author 0217319
  * @version V1.0
- * @Description: CompletionService    使用在需要返回结果的futureTask 线程
+ * @Description: CompletionService
+ * 使用在需要返回结果的futureTask 线程池 用get获取结果时，
+ * 先get出来的是先完成的任务
  * @date
  */
 public class CompletionServiceTest {

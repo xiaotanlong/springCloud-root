@@ -1,4 +1,4 @@
-package concurrentProgramming.ThreadPoolExecutorDemo;
+package concurrentProgramming.threadPoolExecutorDemo;
 
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
