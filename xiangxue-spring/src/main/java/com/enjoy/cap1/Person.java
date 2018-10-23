@@ -4,9 +4,9 @@ public class Person {
 	private String name;
 	private Integer age;
 	//如果一个bean类没有默认的构造方法，spring在创建bean实例时将会抛出如下运行时异常：
-	/*public Person(){
+	public Person(){
 		super();
-	}*/
+	}
 	public String getName() {
 		return name;
 	}
