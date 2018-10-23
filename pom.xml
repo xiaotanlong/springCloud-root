@@ -23,6 +23,7 @@
         <module>eureka-consumer-ribbon-hystrix</module>
 		<module>eureka-hystrix-dashboard</module>
         <module>middleware-tomcat</module>
+        <module>xiangxue-spring</module>
     </modules>
 
     <properties>
