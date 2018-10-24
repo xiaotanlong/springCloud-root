@@ -10,7 +10,7 @@ public class MainTest2 {
 	public static void main(String args[]){
 		//把beans.xml的类加载到容器
 		//ApplicationContext app = new ClassPathXmlApplicationContext("beans.xml");
-
+		//Annotation 注解的意思
 		ApplicationContext app = new AnnotationConfigApplicationContext(MainConfig.class);
 
 		//从容器中获取bean

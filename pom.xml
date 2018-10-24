@@ -17,7 +17,7 @@
         <module>eureka-websocket</module>
         <module>eureka-server</module>
         <module>eureka-consumer</module>
-        <module>xiangxue</module>
+        <module>xiangxue-concurrent</module>
         <module>eureka-consumer-feign</module>
         <module>eureka-consumer-ribbon</module>
         <module>eureka-consumer-ribbon-hystrix</module>
