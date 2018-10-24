@@ -32,10 +32,16 @@ import org.springframework.stereotype.Service;
  * 	问题：(翻车)这样配置：includeFilters={ @Filter(type=FilterType.ANNOTATION, classes={Controller.class})}
  * 			includeFilters和excludeFilters   属性时   useDefaultFilters设置影响获取的规则
  * 	        excludeFilters Controller 时 useDefaultFilters=true  显示正确
- * 	        excludeFilters Controller 时 useDefaultFilters=false  显示错误
+ * 	        excludeFilters Controller 时 useDefaultFilters=false  显示错误  ？问题还是没解决
  * 	        includeFilters Controller 时 useDefaultFilters=false  显示正确
  * 	        includeFilters Controller 时 useDefaultFilters=true  显示错误
  * 	 另外配置自定义：includeFilters={ @Filter(type=FilterType.CUSTOM, classes={Controller.class})}
+ *
+ *   原因：跟到底层源码分析--如果useDefaultFilters=true
+ *   		@Component注解的类都会加载   @Controller @Service @Repository  类似继承 @Component
+ *   	                                   @Bean 没有继承
+ *
+ *
  *
  * 	 另外 @Configuration 注解的类  和这个类中的 @bean  一定会被扫描加载
  */
