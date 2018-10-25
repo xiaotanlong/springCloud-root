@@ -29,7 +29,7 @@ public class Cap6MainConfig {
 	 *  ImportBeanDefinitionRegistrar 定义注册员 接口工具   向IOC中写入    spring 启动时写入bean  可以用在@Import
 	 *  ImportSelector  导入选择者  接口  工具  用在@Import
 	 *
-	 *
+	 * processor   后置处理器
 	 */
 	//容器启动时初始化person的bean实例
 	@Bean("person")

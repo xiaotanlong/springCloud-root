@@ -17,9 +17,10 @@ public class Cap6Test {
 		System.out.println("bean的类型="+bean1.getClass());
 		System.out.println(bean1 == bean2);
 
+		// TODO 遗留问题  这里应该打印出 Monkey 这个类注册在了spring容器中  ，但是没有打印出来
 		String[] beanDefinitionNames = app.getBeanDefinitionNames();
 		for(String name:beanDefinitionNames){
-			System.out.println(name);
+			System.out.println("bean name is : " + name);
 		}
 
 

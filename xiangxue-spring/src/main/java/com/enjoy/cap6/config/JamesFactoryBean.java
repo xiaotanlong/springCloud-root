@@ -4,6 +4,9 @@ import org.springframework.beans.factory.FactoryBean;
 
 import com.enjoy.cap6.bean.Monkey;
 
+/**
+ * FactoryBean  是往容器里注册bean
+ */
 public class JamesFactoryBean implements FactoryBean<Monkey>{
 
 	@Override
@@ -20,6 +23,6 @@ public class JamesFactoryBean implements FactoryBean<Monkey>{
 	
 	@Override
 	public boolean isSingleton() {
-		return true;
+		return false;
 	}
 }
