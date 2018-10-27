@@ -12,7 +12,9 @@ public class Cap6Test {
 		System.out.println("IOC容器创建完成........");
 
 
-		Object bean1 = app.getBean("jamesFactoryBean");
+		//加上&开头  spring的加载时会认为这是一个 FactoryBean  这时会直接返回这个bean的对象
+		//不会加载实现接口方法返回的bean
+		Object bean1 = app.getBean("&jamesFactoryBean");
 		Object bean2 = app.getBean("jamesFactoryBean");//取Money
 		System.out.println("bean的类型="+bean1.getClass());
 		System.out.println(bean1 == bean2);

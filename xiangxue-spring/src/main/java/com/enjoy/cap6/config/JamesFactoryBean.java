@@ -23,6 +23,6 @@ public class JamesFactoryBean implements FactoryBean<Monkey>{
 	
 	@Override
 	public boolean isSingleton() {
-		return false;
+		return true;
 	}
 }
