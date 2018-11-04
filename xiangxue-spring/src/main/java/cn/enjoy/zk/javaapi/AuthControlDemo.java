@@ -13,8 +13,11 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 
+/**
+ * zk原生的api
+ */
 public class AuthControlDemo implements Watcher{
-    private final static String CONNECTSTRING="192.168.30.10:2181";
+    private final static String CONNECTSTRING="47.107.79.2:2181";
     private static CountDownLatch countDownLatch=new CountDownLatch(1);
     private static CountDownLatch countDownLatch2=new CountDownLatch(1);
 

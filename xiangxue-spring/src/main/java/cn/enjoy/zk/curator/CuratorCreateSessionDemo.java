@@ -6,7 +6,7 @@ import org.apache.curator.retry.ExponentialBackoffRetry;
 
 
 public class CuratorCreateSessionDemo {
-    private final static String CONNECTSTRING="192.168.30.10:2181";
+    private final static String CONNECTSTRING="47.107.79.2:2181";
     public static void main(String[] args) {
         //创建会话的两种方式 normal
 //        CuratorFramework curatorFramework= CuratorFrameworkFactory.

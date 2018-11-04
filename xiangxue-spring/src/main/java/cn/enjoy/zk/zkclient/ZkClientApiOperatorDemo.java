@@ -7,7 +7,9 @@ import org.I0Itec.zkclient.ZkClient;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-
+/**
+ * ZkClient 方式 连接zk
+ */
 public class ZkClientApiOperatorDemo {
 
     private final static String CONNECTSTRING="47.107.79.2:2181";
@@ -18,8 +20,8 @@ public class ZkClientApiOperatorDemo {
 
     public static void main(String[] args) throws InterruptedException {
         ZkClient zkClient=getInstance();
-        //zkclient 提供递归创建父节点的功能
-//        zkClient.createPersistent("/zkclient/zkclient1/zkclient1-1/zkclient1-1-1",true);
+        //zkclient 提供递归创建父节点的功能  原生的不支持 递归 创建
+       //zkClient.createPersistent("/zkclient/zkclient1/zkclient1-1/zkclient1-1-1",true);
 //        System.out.println("success");
 
         //删除节点
@@ -33,6 +35,7 @@ public class ZkClientApiOperatorDemo {
 
         //watcher
 
+        //数据内容变化监听  变化  或者删除
 //        zkClient.subscribeDataChanges("/node11", new IZkDataListener() {
 //            @Override
 //            public void handleDataChange(String s, Object o) throws Exception {
@@ -48,6 +51,7 @@ public class ZkClientApiOperatorDemo {
 //        zkClient.writeData("/node11","node");
 //        TimeUnit.SECONDS.sleep(2);
 
+        //节点内容变化监听
         zkClient.subscribeChildChanges("/node11", new IZkChildListener() {
             @Override
             public void handleChildChange(String s, List<String> list) throws Exception {

@@ -13,17 +13,25 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 
+/**
+ * zk原生的api
+ * 调用zk api对节点进行增删改查操作
+ *
+ *
+ * boolean watch   true 使用默认监听   false 不监听
+ * Watcher watcher  使用自定义监听
+ */
 public class ApiOperatorDemo implements Watcher{
-    private final static String CONNECTSTRING="192.168.30.10:2181";
+    private final static String CONNECTSTRING="47.107.79.2:2181";
     private static CountDownLatch countDownLatch=new CountDownLatch(1);
     private static ZooKeeper zookeeper;
-    private static Stat stat=new Stat();
+    private static Stat stat=new Stat();//znode 的信息  比如：创建id  修改id  修改时间
 
     public static void main(String[] args) throws Exception {
         zookeeper=new ZooKeeper(CONNECTSTRING, 5000, new ApiOperatorDemo());
         countDownLatch.await();
 
-        //创建节点
+        //创建节点  节点的路径   节点的值  acl权限  节点类型
 //        String result=zookeeper.create("/node1","123".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
 //        zookeeper.getData("/node1",new ApiOperatorDemo(),stat); //增加一个
 //        System.out.println("创建成功："+result);
@@ -31,6 +39,7 @@ public class ApiOperatorDemo implements Watcher{
         //修改数据
         //zookeeper.getData("/node1",new ApiOperatorDemo(),stat);
 
+        //setData 中的 version 代表是不是做版本控制
 //        zookeeper.setData("/node1","deer2".getBytes(),-1);
 //        Thread.sleep(2000);
 
