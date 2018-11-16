@@ -29,11 +29,11 @@ public class SleepLock {
         @Override
         public void run() {
             String threadName = Thread.currentThread().getName();
-            System.out.println(threadName+" will take the lock");
+            System.out.println(threadName+" will take the distributedlock");
             try {
 
                 synchronized(lock) {
-                    System.out.println(threadName+" taking the lock");
+                    System.out.println(threadName+" taking the distributedlock");
                     
                     System.out.println("Finish the work: "+threadName);
                 }
@@ -49,9 +49,9 @@ public class SleepLock {
         @Override
         public void run() {
             String threadName = Thread.currentThread().getName();
-            System.out.println(threadName+" will take the lock time="+System.currentTimeMillis());
+            System.out.println(threadName+" will take the distributedlock time="+System.currentTimeMillis());
             synchronized(lock) {
-                System.out.println(threadName+" taking the lock time="+System.currentTimeMillis());
+                System.out.println(threadName+" taking the distributedlock time="+System.currentTimeMillis());
                 System.out.println("Finish the work: "+threadName);
             }
         }

@@ -118,7 +118,7 @@ package concurrentProgramming.ch5;///*
 //     * volatile-writes of table elements and entry "next" fields
 //     * within locked operations use the cheaper "lazySet" forms of
 //     * writes (via putOrderedObject) because these writes are always
-//     * followed by lock releases that maintain sequential consistency
+//     * followed by distributedlock releases that maintain sequential consistency
 //     * of table updates.
 //     *
 //     * Historical note: The previous version of this class relied
@@ -368,7 +368,7 @@ package concurrentProgramming.ch5;///*
 //         * cache misses (which are very common for hash tables) while
 //         * obtaining locks so that traversal is faster once
 //         * acquired. We do not actually use the found nodes since they
-//         * must be re-acquired under lock anyway to ensure sequential
+//         * must be re-acquired under distributedlock anyway to ensure sequential
 //         * consistency of updates (and in any case may be undetectably
 //         * stale), but they will normally be much faster to re-locate.
 //         * Also, scanAndLockForPut speculatively creates a fresh node
@@ -541,8 +541,8 @@ package concurrentProgramming.ch5;///*
 //
 //        /**
 //         * Scans for a node containing given key while trying to
-//         * acquire lock, creating and returning one if not found. Upon
-//         * return, guarantees that lock is held. UNlike in most
+//         * acquire distributedlock, creating and returning one if not found. Upon
+//         * return, guarantees that distributedlock is held. UNlike in most
 //         * methods, calls to method equals are not screened: Since
 //         * traversal speed doesn't matter, we might as well help warm
 //         * up the associated code and accesses as well.
@@ -568,7 +568,7 @@ package concurrentProgramming.ch5;///*
 //                        e = e.next;
 //                }
 //                else if (++retries > MAX_SCAN_RETRIES) {
-//                    lock();
+//                    distributedlock();
 //                    break;
 //                }
 //                else if ((retries & 1) == 0 &&
@@ -582,9 +582,9 @@ package concurrentProgramming.ch5;///*
 //
 //        /**
 //         * Scans for a node containing the given key while trying to
-//         * acquire lock for a remove or replace operation. Upon
-//         * return, guarantees that lock is held.  Note that we must
-//         * lock even if the key is not found, to ensure sequential
+//         * acquire distributedlock for a remove or replace operation. Upon
+//         * return, guarantees that distributedlock is held.  Note that we must
+//         * distributedlock even if the key is not found, to ensure sequential
 //         * consistency of updates.
 //         */
 //        private void scanAndLock(Object key, int hash) {
@@ -601,7 +601,7 @@ package concurrentProgramming.ch5;///*
 //                        e = e.next;
 //                }
 //                else if (++retries > MAX_SCAN_RETRIES) {
-//                    lock();
+//                    distributedlock();
 //                    break;
 //                }
 //                else if ((retries & 1) == 0 &&
@@ -697,7 +697,7 @@ package concurrentProgramming.ch5;///*
 //        }
 //
 //        final void clear() {
-//            lock();
+//            distributedlock();
 //            try {
 //                HashEntry<K,V>[] tab = table;
 //                for (int i = 0; i < tab.length ; i++)
@@ -945,7 +945,7 @@ package concurrentProgramming.ch5;///*
 //            for (;;) {
 //                if (retries++ == RETRIES_BEFORE_LOCK) {
 //                    for (int j = 0; j < segments.length; ++j)
-//                        ensureSegment(j).lock(); // force creation
+//                        ensureSegment(j).distributedlock(); // force creation
 //                }
 //                sum = 0L;
 //                size = 0;
@@ -1052,7 +1052,7 @@ package concurrentProgramming.ch5;///*
 //            outer: for (;;) {
 //                if (retries++ == RETRIES_BEFORE_LOCK) {
 //                    for (int j = 0; j < segments.length; ++j)
-//                        ensureSegment(j).lock(); // force creation
+//                        ensureSegment(j).distributedlock(); // force creation
 //                }
 //                long hashSum = 0L;
 //                int sum = 0;
@@ -1511,7 +1511,7 @@ package concurrentProgramming.ch5;///*
 //        final Segment<K,V>[] segments = this.segments;
 //        for (int k = 0; k < segments.length; ++k) {
 //            Segment<K,V> seg = segmentAt(segments, k);
-//            seg.lock();
+//            seg.distributedlock();
 //            try {
 //                HashEntry<K,V>[] tab = seg.table;
 //                for (int i = 0; i < tab.length; ++i) {

@@ -1,10 +1,8 @@
 package com.example.client;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import java.util.Iterator;
-import java.util.ServiceLoader;
+
 
 @EnableDiscoveryClient //注解用来将当前应用加入到服务治理体系中。
 @SpringBootApplication

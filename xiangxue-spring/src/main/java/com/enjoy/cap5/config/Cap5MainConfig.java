@@ -5,6 +5,10 @@ import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 
 import com.enjoy.cap1.Person;
+
+/**
+ * 根据条件判断要不要加载
+ */
 @Configuration
 public class Cap5MainConfig {
 	@Bean("person")

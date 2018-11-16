@@ -12,6 +12,9 @@ import org.springframework.stereotype.Controller;
 import com.enjoy.cap1.Person;
 import com.enjoy.cap2.controller.OrderController;
 
+/**
+ * 单利bean
+ */
 @Configuration
 public class Cap3MainConfig {
 	//给容器中注册一个bean, 类型为返回值的类型, 默认是单实例

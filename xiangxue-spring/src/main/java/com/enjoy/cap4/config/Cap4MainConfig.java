@@ -13,6 +13,9 @@ import org.springframework.stereotype.Controller;
 import com.enjoy.cap1.Person;
 import com.enjoy.cap2.controller.OrderController;
 
+/**
+ * 懒加载
+ */
 @Configuration
 public class Cap4MainConfig {
 	//给容器中注册一个bean, 类型为返回值的类型, 默认是单实例

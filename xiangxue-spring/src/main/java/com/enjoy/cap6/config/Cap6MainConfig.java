@@ -30,6 +30,9 @@ public class Cap6MainConfig {
 	 *  ImportSelector  导入选择者  接口  工具  用在@Import
 	 *
 	 * processor   后置处理器
+	 *
+	 *
+	 *
 	 */
 	//容器启动时初始化person的bean实例
 	@Bean("person")

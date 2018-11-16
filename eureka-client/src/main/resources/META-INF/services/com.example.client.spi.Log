@@ -1,0 +1,2 @@
+com.example.client.spi.Log4j
+com.example.client.spi.Logback
