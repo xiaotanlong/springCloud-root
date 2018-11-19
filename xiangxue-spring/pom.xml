@@ -65,5 +65,12 @@
             <version>1</version>
         </dependency>
 
+        <!-- spring切面编程 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>5.0.6.RELEASE</version>
+        </dependency>
+
     </dependencies>
 </project>
