@@ -11,6 +11,8 @@ import com.enjoy.cap7.bean.Bike;
 /**
  * @Bean(initMethod="init", destroyMethod="destory")
  * 方式 执行 bean的创建 和销毁方法
+ *
+ * 多实例: 容器只负责初始化,但不会管理bean, 容器关闭不会调用销毁方法
  */
 @ComponentScan("com.enjoy.cap7.bean")
 @Configuration
