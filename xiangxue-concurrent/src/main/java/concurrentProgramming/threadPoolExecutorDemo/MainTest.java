@@ -3,7 +3,7 @@ package concurrentProgramming.threadPoolExecutorDemo;
 import java.util.concurrent.*;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description:线程池基本使用
  */

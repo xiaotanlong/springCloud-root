@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringValueResolver;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: 解析配置文件  获取值
  * 读取sping加载的配置文件中的属性    和jvm系统变量

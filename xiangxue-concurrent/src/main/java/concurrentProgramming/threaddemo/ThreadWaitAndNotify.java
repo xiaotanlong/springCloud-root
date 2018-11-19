@@ -1,7 +1,7 @@
 package concurrentProgramming.threaddemo;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: wait notify 原理，性能测试
  * wait 和 notify/notifyAll是类的方法   在有线程安全标示（锁 ，synchronized）

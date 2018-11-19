@@ -7,7 +7,7 @@ import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: Hystrix Command 命令类
  * 1.使用场景   必须要同步的 ，调用容易出错，不是整个逻辑必须的    接口

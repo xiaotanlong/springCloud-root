@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.util.LinkedList;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: 数据库连接池类(用一句话描述该文件做什么)
  *

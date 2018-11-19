@@ -1,7 +1,7 @@
 package com.eureka.common.utils;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: 通过spring管理的基础上 获取class  并执行相关方法
  * @date

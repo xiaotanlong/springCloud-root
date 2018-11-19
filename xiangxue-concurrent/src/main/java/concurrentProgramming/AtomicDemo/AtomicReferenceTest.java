@@ -3,7 +3,7 @@ package concurrentProgramming.AtomicDemo;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: 原子更新 引用类型
  * @date

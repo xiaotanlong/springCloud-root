@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: 线程变量  ThreadLocalDemo 相关示例(用一句话描述该文件做什么)
  * @date

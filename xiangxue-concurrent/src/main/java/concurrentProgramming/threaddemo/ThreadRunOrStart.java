@@ -1,7 +1,7 @@
 package concurrentProgramming.threaddemo;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: 线程的run和startDe分别(用一句话描述该文件做什么)
  * @date 2018.8.16

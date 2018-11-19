@@ -3,7 +3,7 @@ package com.example.consumer.ClientService;
 import org.springframework.stereotype.Component;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: 提供熔断的降级服务
  * @date

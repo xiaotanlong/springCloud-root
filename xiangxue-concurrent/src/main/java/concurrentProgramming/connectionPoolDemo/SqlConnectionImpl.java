@@ -6,7 +6,7 @@ import java.util.Properties;
 import java.util.concurrent.Executor;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description:   模拟实现数据库连接的  类
  * @date

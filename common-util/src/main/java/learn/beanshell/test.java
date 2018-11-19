@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Date;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: beanshell test(用一句话描述该文件做什么)
  * @date

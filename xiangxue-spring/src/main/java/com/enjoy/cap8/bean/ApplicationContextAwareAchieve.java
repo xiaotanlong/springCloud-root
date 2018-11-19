@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: Spring容器会在创建该Bean之后，自动调用该Bean的setApplicationContextAware()方法，
  * 调用该方法时，会将容器本身作为参数传给该方法

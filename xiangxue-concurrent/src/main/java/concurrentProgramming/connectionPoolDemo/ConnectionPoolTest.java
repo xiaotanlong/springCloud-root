@@ -5,7 +5,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: 连接词测试类   启动多个线程测试数据库连接测试   同时测试wite  和  notify/notifyall方法
  * @date 2018.8.20

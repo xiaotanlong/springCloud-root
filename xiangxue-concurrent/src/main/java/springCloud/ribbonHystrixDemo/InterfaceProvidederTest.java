@@ -1,7 +1,7 @@
 package springCloud.ribbonHystrixDemo;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: 被调用的接口类
  * @date

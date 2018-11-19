@@ -3,7 +3,7 @@ package com.enjoy.cap8.bean;
 import org.springframework.beans.factory.BeanNameAware;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: (用一句话描述该文件做什么)
  * 实现BeanNameAware接口需要实现setBeanName()方法，这个方法只是简单的返回我们当前的beanName

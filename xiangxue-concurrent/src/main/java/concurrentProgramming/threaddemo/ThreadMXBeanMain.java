@@ -5,7 +5,7 @@ import java.lang.management.ThreadInfo;
 import java.lang.management.ThreadMXBean;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: 虚拟机线程管理接口
  * @date 8.16
