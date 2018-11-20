@@ -21,8 +21,22 @@ import com.enjoy.cap10.aop.LogAspects;
 		 给配置类中加@EnableAspectJAutoProxy[一定得加上,关键]
 		 注意: 在spring以后会有很多@EnableXXXX, 表示开启某项功能, 取代XML配置
 
+ AOP看起来很麻烦, 只要3步就可以了:
+ 1,将业务逻辑组件和切面类都加入到容器中, 告诉spring哪个是切面类(@Aspect)
+ 2,在切面类上的每个通知方法上标注通知注解, 告诉Spring何时运行(写好切入点表达式,参照官方文档)
+ 3,开启基于注解的AOP模式  @EableXXXX
+
+
+ <!--启用aop自动代理类配置-->  使用xml配置文件
+ <aop:aspectj-autoproxy proxy-target-class="true" />
+ 用户可以自己控制代理的类型，通过proxyTargetClass属性，默认false，采用JDK动态代理织入增强；
+ 如果设为true，则采用CGLIB动态代理织入增强。
+ 不过即使proxyTargetClass设置为false，如果目标类没有声明接口，则Spring将自动使用CGLib动态代理。
+
+
  */
 @Configuration
+//开启AspectJ 自动代理模式,如果不填proxyTargetClass=true，默认为false，
 @EnableAspectJAutoProxy//开启aop
 public class Cap10MainConfig {
 	@Bean
