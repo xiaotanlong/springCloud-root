@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * Created by VULCAN on 2018/9/20.
+ * 分布式锁的优化  避免羊群效应  ----一个节点只监听他上一个节点的变动---这样就是公平锁了的？
  */
 
 

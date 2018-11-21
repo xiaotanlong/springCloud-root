@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * Created by VULCAN on 2018/9/20.
+ * waitLock 监听所有节点   开销比较大
  */
 
 
