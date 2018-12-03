@@ -1,6 +1,6 @@
 package com.xiangxue.ch8b.assist;
 
-import org.apache.commons.lang.StringUtils;
+import com.sun.deploy.util.StringUtils;
 
 import java.security.DigestException;
 import java.security.MessageDigest;
@@ -151,7 +151,7 @@ public class EncryptUtils {
 
             }
         }
-        return StringUtils.join(s);
+        return null;
     }
 
     /**
@@ -163,7 +163,7 @@ public class EncryptUtils {
      */
     public static String encrypt(String str,String key){
 
-        if( str==null || str.length()==0 || StringUtils.isBlank(key)){
+        if( str==null || str.length()==0 ){
             return encrypt(str);
         }
 

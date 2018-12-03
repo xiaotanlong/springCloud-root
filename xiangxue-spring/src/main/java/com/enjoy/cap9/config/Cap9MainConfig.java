@@ -17,4 +17,11 @@ public class Cap9MainConfig {
 		testDao.setFlag("2");
 		return testDao;
 	}
+
+	@Bean("testDao")
+	public TestDao testDao3(){
+		TestDao testDao = new TestDao();
+		testDao.setFlag("3");
+		return testDao;
+	}
 }
