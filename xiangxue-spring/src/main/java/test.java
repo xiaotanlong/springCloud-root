@@ -22,6 +22,10 @@ public class test {
         test t = new test();
         System.out.println(a.getClass());
         t.swap(a,b);
-        System.out.println(a + "   " + b);
+        System.out.println(a + "   " + b + "   "+ "abc".indexOf(97));
+
+
     }
+
+
 }

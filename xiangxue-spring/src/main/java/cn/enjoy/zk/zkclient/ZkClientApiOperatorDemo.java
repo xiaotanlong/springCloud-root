@@ -59,7 +59,7 @@ public class ZkClientApiOperatorDemo {
             }
         });
 
-        zkClient.delete("/node11/node1");;
+        zkClient.delete("/node11/node1");
         TimeUnit.SECONDS.sleep(2);
 
     }

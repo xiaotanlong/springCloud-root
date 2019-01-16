@@ -24,6 +24,7 @@
 		<module>eureka-hystrix-dashboard</module>
         <module>middleware-tomcat</module>
         <module>xiangxue-spring</module>
+        <module>xiangxue-redis</module>
     </modules>
 
     <properties>
