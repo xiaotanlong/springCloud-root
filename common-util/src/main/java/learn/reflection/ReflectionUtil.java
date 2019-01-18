@@ -25,7 +25,8 @@ public class ReflectionUtil {
      * @param parameterValues 参数值
      * @return
      */
-    public static Object publicMethodInvoke(String className,String methodName,Class<?> parameterTypes[],Object parameterValues []){
+    public static Object publicMethodInvoke(String className,String methodName,Class<?> parameterTypes[],
+                                            Object parameterValues []){
         try {
             Class classObj = Class.forName(className);
             Object classObjIn = classObj.newInstance();//实例化对象
