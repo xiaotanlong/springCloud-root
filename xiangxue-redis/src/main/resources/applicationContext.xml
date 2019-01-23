@@ -20,7 +20,7 @@
     </bean>
 
 
-    <bean id="jedisCluster" class="com.james.cache.factory.JedisClusterFactory">
+    <bean id="jedisCluster" class="com.tjl.cache.factory.JedisClusterFactory">
         <property name="addressConfig" value="classpath:redis.properties"/>
         <property name="addressKeyPrefix" value="address" />
 

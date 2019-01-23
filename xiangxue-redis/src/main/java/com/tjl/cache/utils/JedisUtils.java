@@ -1,4 +1,4 @@
-package com.james.cache.utils;
+package com.tjl.cache.utils;
 
 import java.util.List;
 import java.util.Map;
@@ -12,9 +12,6 @@ import redis.clients.jedis.BinaryClient.LIST_POSITION;
 
 /**
  * redis通用工具类
- * 
- * @author James
- *
  */
 public class JedisUtils {
 

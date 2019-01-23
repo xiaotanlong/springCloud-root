@@ -1,7 +1,7 @@
-package com.james.cache.main;
+package com.tjl.cache.main;
 
-import com.james.cache.redpack.GenRedPack;
-import com.james.cache.redpack.GetRedPack;
+import com.tjl.cache.redpack.GenRedPack;
+import com.tjl.cache.redpack.GetRedPack;
 
 public class MainTestRedPack {
 	

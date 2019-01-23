@@ -1,7 +1,7 @@
-package com.james.cache.redpack;
+package com.tjl.cache.redpack;
 
-import com.james.cache.basic.Basic;
-import com.james.cache.utils.JedisUtils;
+import com.tjl.cache.basic.Basic;
+import com.tjl.cache.utils.JedisUtils;
 
 import java.io.*;
 import java.util.UUID;

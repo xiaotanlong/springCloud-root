@@ -1,4 +1,4 @@
-package com.james.cache.basic;
+package com.tjl.cache.basic;
 /**
  * 常量类
  */

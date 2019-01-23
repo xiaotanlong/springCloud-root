@@ -1,8 +1,8 @@
-package com.james.cache.redpack;
+package com.tjl.cache.redpack;
 
 import com.alibaba.fastjson.JSONObject;
-import com.james.cache.basic.Basic;
-import com.james.cache.utils.JedisUtils;
+import com.tjl.cache.basic.Basic;
+import com.tjl.cache.utils.JedisUtils;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -23,9 +23,9 @@ public class GenRedPack {
 				public void run(){
 					//每个线程要初始化多少个红包
 					int per = Basic.honBaoCount/Basic.threadCount;
-					
+
 					JSONObject object = new JSONObject();
-					
+
 					for(int j = page * per ; j < (page+1) * per; j++){ //从0开始，直到
 						object.put("id", "rid_"+j); //红包ID
 						object.put("money", j);   //红包金额

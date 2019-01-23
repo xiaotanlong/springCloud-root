@@ -1,4 +1,4 @@
-package com.james.cache.factory;
+package com.tjl.cache.factory;
 
 import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
 import org.springframework.beans.factory.FactoryBean;
@@ -12,11 +12,6 @@ import java.util.Iterator;
 import java.util.Properties;
 import java.util.Set;
 import java.util.regex.Pattern;
-
-/**
- * @version V1.0
- * @Modified By:James Created in 23:07 2019/1/1
- */
 public class JedisClusterFactory implements FactoryBean<JedisCluster>, InitializingBean {
 	private Resource addressConfig;
 	private String addressKeyPrefix;
