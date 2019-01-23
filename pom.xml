@@ -25,6 +25,7 @@
         <module>middleware-tomcat</module>
         <module>xiangxue-spring</module>
         <module>xiangxue-redis</module>
+        <module>xiangxue-zk</module>
     </modules>
 
     <properties>
