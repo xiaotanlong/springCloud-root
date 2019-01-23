@@ -4,7 +4,7 @@ import learn.threadcallback.AbstractCallbackMethodsThread;
 import learn.threadcallback.PoolUtil;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: 测试回调
  * @date 2019/1/18 11:59

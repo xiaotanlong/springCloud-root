@@ -3,7 +3,7 @@ package learn.threadcallback;
 import java.util.concurrent.*;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: 统一接受任务执行
  * @date 2019/1/18 10:50

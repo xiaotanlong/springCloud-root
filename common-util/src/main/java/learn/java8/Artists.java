@@ -1,7 +1,7 @@
 package learn.java8;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: Artists(用一句话描述该文件做什么)
  * @date 2018/12/5 15:15

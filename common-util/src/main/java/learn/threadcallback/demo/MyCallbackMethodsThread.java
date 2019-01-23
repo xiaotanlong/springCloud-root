@@ -3,7 +3,7 @@ package learn.threadcallback.demo;
 import learn.threadcallback.AbstractCallbackMethodsThread;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description:
  * @date 2019/1/19 13:21

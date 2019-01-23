@@ -1,7 +1,7 @@
 package learn.threadcallback;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: 存储当前提交过来的信息任务信息
  * @date 2019/1/18 11:08

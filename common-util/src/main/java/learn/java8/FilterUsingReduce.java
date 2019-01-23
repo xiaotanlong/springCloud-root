@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: FilterUsingReduce(只用reduce 和Lambda 表达式写出实现Stream 上的filter 操作的代码，如果不想返回
         Stream，可以返回一个List。)

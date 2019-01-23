@@ -1,7 +1,7 @@
 package learn.threadcallback;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: 带有回调的thread
  * @date 2019/1/19 13:08
