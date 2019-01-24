@@ -51,7 +51,7 @@ public class JedisUtils {
 
 	/**
 	 * 通过配置对象 ip 端口 构建连接池
-	 * 
+	 *
 	 * @param config
 	 *            配置对象
 	 * @param ip
@@ -85,7 +85,7 @@ public class JedisUtils {
 
 	/**
 	 * 通过连接池对象 构建一个连接池
-	 * 
+	 *
 	 * @param pool
 	 *            连接池对象
 	 */
@@ -135,7 +135,7 @@ public class JedisUtils {
 
 	/**
 	 * 通过key获取储存在redis中的value 并释放连接
-	 * 
+	 *
 	 * @param key
 	 * @return 成功返回value 失败返回null
 	 */
@@ -156,7 +156,7 @@ public class JedisUtils {
 
 	/**
 	 * 向redis存入key和value,并释放连接资源 如果key已经存在 则覆盖
-	 * 
+	 *
 	 * @param key
 	 * @param value
 	 * @return 成功 返回OK 失败返回 0
@@ -166,6 +166,27 @@ public class JedisUtils {
 		try {
 			jedis = pool.getResource();//每次操作时向pool借用一个jedis对象，用完即还。
 			return jedis.set(key, value);
+		} catch (Exception e) {
+			pool.returnBrokenResource(jedis);
+			e.printStackTrace();
+			return "0";
+		} finally {
+			returnResource(pool, jedis);
+		}
+	}
+
+	/**
+	 * key:我们使用key来当锁
+	 * uuid:唯一标识，这个锁是我加的，属于我
+	 * NX：设入模式【SET_IF_NOT_EXIST】--仅当key不存在时，本语句的值才设入
+	 * PX：给key加有效期
+	 * 1000：有效时间为 1 秒
+	 */
+	public String set(String var1, String var2, String var3, String var4, long var5) {
+		Jedis jedis = null;
+		try {
+			jedis = pool.getResource();//每次操作时向pool借用一个jedis对象，用完即还。
+			return jedis.set(var1,var2,var3,var4,var5);
 		} catch (Exception e) {
 			pool.returnBrokenResource(jedis);
 			e.printStackTrace();
@@ -200,11 +221,26 @@ public class JedisUtils {
 			returnResource(pool, jedis);
 		}
 	}
-	public Object eval(String s1,int i1,String s2, String s3, String s4, String s5) {
+
+	public Object eval(String script, List<String> keys, List<String> args) {
 		Jedis jedis = null;
 		try {
 			jedis = pool.getResource();//每次操作时向pool借用一个jedis对象，用完即还。
-			return jedis.eval(s1,i1,s2,s3,s4,s5);
+			return jedis.eval(script,keys,args);
+		} catch (Exception e) {
+			pool.returnBrokenResource(jedis);
+			e.printStackTrace();
+			return "0";
+		} finally {
+			returnResource(pool, jedis);
+		}
+	}
+
+	public Object eval(String s1,int i1,String... params) {
+		Jedis jedis = null;
+		try {
+			jedis = pool.getResource();//每次操作时向pool借用一个jedis对象，用完即还。
+			return jedis.eval(s1,i1,params);
 		} catch (Exception e) {
 			pool.returnBrokenResource(jedis);
 			e.printStackTrace();
