@@ -1,17 +1,17 @@
-package cn.enjoy.zk.distributedlock.zk;
+package com.tjl.zk.zkclientlock;
 
 import org.I0Itec.zkclient.IZkDataListener;
-import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * 分布式锁的优化  避免羊群效应  ----一个节点只监听他上一个节点的变动---这样就是公平锁了的？
+ * @author xiaotantjl@163.com
+ * @version V1.0
+ * @Description: 高性能  当前节点只监听前一个节点
+ * @date 2019/1/24 10:11
  */
-
-
 public class ZookeeperDistrbuteLock2 extends ZookeeperAbstractLock {
     private CountDownLatch countDownLatch= null;
 
@@ -30,7 +30,7 @@ public class ZookeeperDistrbuteLock2 extends ZookeeperAbstractLock {
         //如果currentPath为空则为第一次尝试加锁，第一次加锁赋值currentPath
         if(currentPath == null || currentPath.length()<= 0){
             //创建一个临时顺序节点
-            currentPath = this.zkClient.createEphemeralSequential(PATH2 + '/',"curatorlock");
+            currentPath = this.zkClient.createEphemeralSequential(PATH2 + '/',"lock");
         }
         //获取所有临时节点并排序，临时节点名称为自增长的字符串如：0000000400
         List<String> childrens = this.zkClient.getChildren(PATH2);
@@ -57,7 +57,6 @@ public class ZookeeperDistrbuteLock2 extends ZookeeperAbstractLock {
                     countDownLatch.countDown();
                 }
             }
-
             public void handleDataChange(String dataPath, Object data) throws Exception {
 
             }

@@ -11,7 +11,7 @@ public class OrderService implements Runnable {
 
     private Lock lock = new ZookeeperDistrbuteLock();
 
-    //private Lock lock = new ZookeeperDistrbuteLock2();
+    //private Lock curatorlock = new ZookeeperDistrbuteLock2();
 
     public void run() {
         getNumber();

@@ -1,4 +1,4 @@
-package com.tjl.zk.lock;
+package com.tjl.zk.curatorlock;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
@@ -14,6 +14,7 @@ import java.util.concurrent.locks.Lock;
  * @author xiaotantjl@163.com
  * @version V1.0
  * @Description: 使用 org.apache.curator  操作 zookeeper 实现分布式锁
+ * 测试记录：使用阿里云zk  200线程以上会出问题   使用本地zk   1000线程没有问题   网络原因？
  * @date 2019/1/23 13:51
  */
 public class DistributeLock implements Lock ,Serializable {
@@ -46,7 +47,7 @@ public class DistributeLock implements Lock ,Serializable {
      * @return
      */
     private InterProcessMutex getInterProcessMutex() {
-        return new InterProcessMutex(CLIENT, "/lock/" + this.modulName);
+        return new InterProcessMutex(CLIENT, "/curatorlock/" + this.modulName);
     }
     @Override
     public void lock() {

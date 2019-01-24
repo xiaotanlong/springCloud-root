@@ -1,6 +1,6 @@
 package com.tjl.zk;
 
-import com.tjl.zk.lock.DistributeLock;
+import com.tjl.zk.curatorlock.DistributeLock;
 
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ZkClientTest {
     public static Integer num = 0;
-    public static Integer Thread_num = 200;
+    public static Integer Thread_num = 1000;
     private static CountDownLatch count = new CountDownLatch(Thread_num);
 
     public static void main(String[] args) throws Exception{

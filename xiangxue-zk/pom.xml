@@ -65,6 +65,14 @@
             </exclusions>
             <scope>test</scope>
         </dependency>-->
+
+
+        <!-- 另一种zk客户端的包 -->
+        <dependency>
+            <groupId>com.101tec</groupId>
+            <artifactId>zkclient</artifactId>
+            <version>0.10</version>
+        </dependency>
     </dependencies>
 
 
