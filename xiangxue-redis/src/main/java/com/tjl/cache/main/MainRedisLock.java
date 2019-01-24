@@ -13,7 +13,7 @@ import java.util.concurrent.CountDownLatch;
  */
 public class MainRedisLock {
     public static Integer num = 0;
-    public static Integer Thread_num = 300;
+    public static Integer Thread_num = 1;
     private static CountDownLatch count = new CountDownLatch(Thread_num);
 
     public static void main(String[] args) throws Exception{
@@ -25,14 +25,14 @@ public class MainRedisLock {
                     distributeLock.lock();
 
                         Random random = new Random();
-                        Thread.sleep((long)random.nextInt(80));
+                        //Thread.sleep((long)random.nextInt(1));
                         MainRedisLock tets = new MainRedisLock();
                         tets.addNum();
 
                     count.countDown();
-                }catch (InterruptedException e){
+                }/*catch (InterruptedException e){
                     e.printStackTrace();
-                }catch (Exception e2){
+                }*/catch (Exception e2){
                     e2.printStackTrace();
                 }finally {
                     distributeLock.unlock();

@@ -3,7 +3,7 @@ package com.tjl.cache.basic;
  * 常量类
  */
 public class Basic {
-	public static String ip = "47.107.79.2";
+	public static String ip = "localhost";
 	public static int port = 6379;
 	public static String auth = "redis_123456";
 	public static int honBaoCount = 1000;

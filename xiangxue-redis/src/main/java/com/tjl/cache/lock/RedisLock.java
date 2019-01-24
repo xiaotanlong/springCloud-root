@@ -7,6 +7,7 @@ import com.tjl.cache.utils.JedisUtils;
 import java.util.Arrays;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
@@ -18,6 +19,7 @@ import java.util.concurrent.locks.Lock;
  */
 public class RedisLock implements Lock {
 
+    private static AtomicInteger intn = new AtomicInteger(0);
     private static final String  KEY = "LOCK_KEY";
 
     JedisUtils jedis = new JedisUtils(Basic.ip, Basic.port, Basic.auth);
@@ -30,13 +32,14 @@ public class RedisLock implements Lock {
     public void lock() {
         //1.尝试加锁
         if(tryLock()){
+            System.out.println(Thread.currentThread().getName() + "tryLock success .total is :" + intn.decrementAndGet());
             return;
         }
         //2.加锁失败，当前任务休眠一段时间
         try {
             Thread.sleep(10);//性能浪费
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
         //3.递归调用，再次去抢锁
         lock();
@@ -49,7 +52,6 @@ public class RedisLock implements Lock {
     public boolean tryLock() {
         //产生随机值，标识本次锁编号
         String uuid = UUID.randomUUID().toString();
-
         /**
          * key:我们使用key来当锁
          * uuid:唯一标识，这个锁是我加的，属于我
@@ -57,8 +59,7 @@ public class RedisLock implements Lock {
          * PX：给key加有效期
          * 1000：有效时间为 1 秒
          */
-        String ret = jedis.set(KEY, uuid,"NX","PX",1000);
-
+        String ret = jedis.set(KEY, uuid,"NX","PX",1000l);
         //设值成功--抢到了锁
         if("OK".equals(ret)){
             local.set(uuid);//抢锁成功，把锁标识号记录入本线程--- Threadlocal
@@ -106,6 +107,7 @@ public class RedisLock implements Lock {
 
     @Override
     public void lockInterruptibly() throws InterruptedException {
+        throw new RuntimeException("不支持中断");
     }
 
 }
