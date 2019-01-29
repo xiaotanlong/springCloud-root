@@ -99,6 +99,13 @@ public class RedisLock implements Lock {
         return null;
     }
 
+    /**
+     * 参考
+     * @param time
+     * @param unit
+     * @return
+     * @throws InterruptedException
+     */
     @Override
     public boolean tryLock(long time, TimeUnit unit)
             throws InterruptedException {
