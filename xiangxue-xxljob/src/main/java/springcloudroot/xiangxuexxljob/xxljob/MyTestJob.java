@@ -6,7 +6,7 @@ import com.xxl.job.core.handler.annotation.JobHandler;
 import org.springframework.stereotype.Service;
 
 /**
- * @author 0217319
+ * @author xiaotantjl@163.com
  * @version V1.0
  * @Description:
  * @date 2019/1/29 15:13
