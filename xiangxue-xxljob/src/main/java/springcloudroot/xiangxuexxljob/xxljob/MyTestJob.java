@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 @JobHandler(value="enjoySimple") //value值对应的是调度中心新建任务的JobHandler
 @Service
 public class MyTestJob extends IJobHandler {
+
     @Override
     public ReturnT<String> execute(String s) throws Exception {
         System.out.println("测试  xxl  job  -----parm is:" + s);
