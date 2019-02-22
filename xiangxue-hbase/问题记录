@@ -1,0 +1,3 @@
+windows 本地开的好像需要配置 hadoop 环境
+HBase开发中RpcRetryingCaller Call exception问题
+       ---需要配置windows hosts 文件，添加地址映射
