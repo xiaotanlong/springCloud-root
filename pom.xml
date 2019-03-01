@@ -26,6 +26,7 @@
         <module>xiangxue-spring</module>
         <module>xiangxue-redis</module>
         <module>xiangxue-zk</module>
+        <module>xiangxuerw-separation</module>
     </modules>
 
     <properties>
