@@ -14,7 +14,7 @@ import com.xiangxue.ch8b.vo.QuestionInDBVo;
 import com.xiangxue.ch8b.vo.TaskResultVo;
 
 /**
- *@author Mark老师   享学课堂 https://enjoy.ke.qq.com 
+ *
  *
  *类说明：并发处理题目的服务
  */

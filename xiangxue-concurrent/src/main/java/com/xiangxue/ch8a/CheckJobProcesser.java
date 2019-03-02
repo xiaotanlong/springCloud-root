@@ -8,7 +8,7 @@ import com.xiangxue.ch5.bq.Order;
 import com.xiangxue.ch8a.vo.JobInfo;
 
 /**
- *@author Mark老师   享学课堂 https://enjoy.ke.qq.com 
+ *
  *
  *类说明：任务完成后,在一定的时间供查询，之后为释放资源节约内存，需要定期处理过期的任务
  */

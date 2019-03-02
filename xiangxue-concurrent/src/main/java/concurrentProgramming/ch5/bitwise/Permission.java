@@ -1,6 +1,6 @@
 package concurrentProgramming.ch5.bitwise;
 /**
- *@author Mark老师   享学课堂 https://enjoy.ke.qq.com 
+ *
  *
  *类说明：
  */

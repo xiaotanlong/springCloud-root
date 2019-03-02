@@ -2,7 +2,7 @@ package com.xiangxue.ch7.safeclass;
 
 
 /**
- *@author Mark老师   享学课堂 https://enjoy.ke.qq.com 
+ *
  *
  *类说明：看起来不可变的类，实际是可变的
  */

@@ -2,7 +2,7 @@ package com.xiangxue.ch5.bitwise;
 
 import java.io.UnsupportedEncodingException;
 /**
- *@author Mark老师   享学课堂 https://enjoy.ke.qq.com 
+ *
  *
  *类说明：演示位运算
  */

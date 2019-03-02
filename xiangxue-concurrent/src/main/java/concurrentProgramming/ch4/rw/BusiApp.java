@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 
 /**
- *@author Mark老师   享学课堂 https://enjoy.ke.qq.com 
+ *
  *
  *类说明：对商品进行业务的应用
  */

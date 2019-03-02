@@ -8,7 +8,7 @@ import com.xiangxue.ch8a.vo.TaskResult;
 import com.xiangxue.tools.SleepTools;
 
 /**
- *@author Mark老师   享学课堂 https://enjoy.ke.qq.com 
+ *
  *
  *类说明：模拟一个应用程序，提交工作和任务，并查询任务进度
  */
