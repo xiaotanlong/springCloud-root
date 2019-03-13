@@ -4,6 +4,7 @@ import com.tjl.xiangxuehbase.hbase.bean.Emp;
 import com.tjl.xiangxuehbase.service.base.IHbaseBaseService;
 import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
+import java.util.List;
 
 /**
  * @author xiaotantjl@163.com
@@ -19,7 +20,11 @@ public class IHbaseTestService extends IHbaseBaseService<Emp> implements HbaseTe
 
     @PostConstruct
     public void test() throws Exception{
-        this.get(Emp.class,"emp","1");
-        this.get("emp","1");
+        Emp e = this.get(Emp.class,"erp_contact_test","1");
+        //List<Emp> e3 = this.scan(Emp.class,"erp_contact_test");
+        System.out.println(e.getName() + "==================");
+        //this.get("emp","1");
+
+        //System.out.println(e3.get(0) + "==================");
     }
 }

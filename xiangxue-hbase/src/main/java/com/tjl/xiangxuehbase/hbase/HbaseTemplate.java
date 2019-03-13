@@ -154,6 +154,7 @@ public class HbaseTemplate<T,R> implements InitializingBean {
      */
     public <T> T get(Class<?> clazz,String tableName,String rowKey) {
         Table table = null;
+        T r = null;
         try{
             table = connection.getTable(TableName.valueOf(tableName));
             Get get = new Get(Bytes.toBytes(rowKey));
@@ -169,8 +170,7 @@ public class HbaseTemplate<T,R> implements InitializingBean {
                     sb.append(new String(kv1.getQualifier()) + ":" + new String(kv1.getValue()));
                 }
             }
-
-            return HbaseBeanUtil.creat(clazz,sb.toString());
+            r = HbaseBeanUtil.creat(clazz,sb.toString());
         }catch (Exception e){
             e.printStackTrace();
         }finally {
@@ -181,8 +181,9 @@ public class HbaseTemplate<T,R> implements InitializingBean {
             }catch (IOException e){
                 e.printStackTrace();
             }
-            return null;
+
         }
+        return r;
     }
 
 

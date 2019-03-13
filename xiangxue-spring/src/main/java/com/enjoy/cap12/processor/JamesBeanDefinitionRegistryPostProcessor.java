@@ -11,6 +11,9 @@ import org.springframework.stereotype.Component;
 
 import com.enjoy.cap9.bean.Moon;
 
+/**
+ * BeanDefinitionRegistryPostProcessor  定义的后置处理器
+ */
 @Component
 public class JamesBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor{
 

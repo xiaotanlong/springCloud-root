@@ -1,3 +1,5 @@
+import java.util.Date;
+
 /**
  * @author xiaotantjl@163.com
  * @version V1.0
@@ -19,10 +21,14 @@ public class test {
     public static void main(String[] args) {
         /*Integer a = 1;
         Integer b = 2;*/
-        test t = new test();
+        /*test t = new test();
         System.out.println(a.getClass());
         t.swap(a,b);
-        System.out.println(a + "   " + b + "   "+ "abc".indexOf(97));
+        System.out.println(a + "   " + b + "   "+ "abc".indexOf(97));*/
+        System.out.println(Integer.MAX_VALUE );
+        System.out.println( System.currentTimeMillis() / 1000);
+        System.out.println( new Date().getSeconds());
+        System.out.println(Integer.MAX_VALUE - ( System.currentTimeMillis() / 1000));
 
 
     }

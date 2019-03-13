@@ -160,7 +160,5 @@ public class UseTestMain {
         }else {
 
         }
-
-        System.out.println(result);
     }
 }
