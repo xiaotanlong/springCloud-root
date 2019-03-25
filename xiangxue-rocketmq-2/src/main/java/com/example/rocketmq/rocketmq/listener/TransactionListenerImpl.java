@@ -1,6 +1,7 @@
 package com.example.rocketmq.rocketmq.listener;
 
 
+import com.example.rocketmq.rocketmq.bean.CountDownTest;
 import com.example.rocketmq.rocketmq.service.SendDemo;
 import org.apache.rocketmq.spring.annotation.RocketMQTransactionListener;
 import org.apache.rocketmq.spring.core.RocketMQLocalTransactionListener;
@@ -39,14 +40,24 @@ public class TransactionListenerImpl implements RocketMQLocalTransactionListener
 
      public RocketMQLocalTransactionState executeLocalTransaction(Message msg, Object arg) {
         // ... local transaction process, return bollback, commit or unknown
-       log.info("TransactionListenerImpl 1 ==============executeLocalTransaction message {}",msg.getPayload());
-        try{
-           // Thread.sleep(100000);
-        }catch (Exception e){
+         log.info("TransactionListenerImpl 2 ==============executeLocalTransaction message {}",msg.getPayload());
+         String key = String.valueOf(arg);
+         CountDownTest tt = CountDownTest.getObj(key);
+         log.info("==============kkkk  {},{}",tt,key);
+         try{
+            Thread.sleep(8000);
+          }catch (Exception e){
 
-        }
-        //int i = 1/0;
-
+          }finally {
+             try {
+                 tt.countDown();
+             } catch (InterruptedException e) {
+                 e.printStackTrace();
+             }
+         }
+       // int i = 1/0;
+         tt.setResurt("ok");
+         log.info("TransactionListenerImpl 2 ======COMMIT");
         return RocketMQLocalTransactionState.COMMIT;
      }
 

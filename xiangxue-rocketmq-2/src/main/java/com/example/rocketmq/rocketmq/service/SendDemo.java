@@ -1,11 +1,11 @@
 package com.example.rocketmq.rocketmq.service;
 
+import com.example.rocketmq.rocketmq.bean.CountDownTest;
 import com.example.rocketmq.rocketmq.bean.OrderPaidEvent;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
@@ -26,13 +26,13 @@ import java.math.BigDecimal;
  */
 @Service
 public class SendDemo implements InitializingBean{
-    @Autowired
+    @Resource
     private RocketMQTemplate rocketMQTemplate;
     Logger log = LoggerFactory.getLogger(SendDemo.class);
     @Override
     public void afterPropertiesSet() throws Exception {
         log.info("SendDemo----send{}","test-topic-1");
-        run();
+        //run();
     }
 
     public void run(String... args) throws Exception {
@@ -40,7 +40,13 @@ public class SendDemo implements InitializingBean{
         //rocketMQTemplate.send("test-topic-1", MessageBuilder.withPayload("Hello, World! I'm from spring message").build());
         //rocketMQTemplate.convertAndSend("test-topic-2", new OrderPaidEvent("T_001", new BigDecimal("88.00")));
 //        rocketMQTemplate.destroy(); // notes:  once rocketMQTemplate be destroyed, you can not send any message again with this rocketMQTemplate
-        Message msg = MessageBuilder.withPayload("Hello, World!  SendDemo 1 Transaction ").build();
-        rocketMQTemplate.sendMessageInTransaction("test", "follow2ERP" ,msg, null);
+        CountDownTest<String> count = new CountDownTest(1);
+        CountDownTest.putObj("dsadasdas",count);
+        Message msg = MessageBuilder.withPayload("Hello, World!  SendDemo 2 Transaction ").build();
+        rocketMQTemplate.sendMessageInTransaction("test", "test-topic" ,msg, "dsadasdas");
+        count.await();
+
+        log.info("end -----------------{}",count.getResurt());
+
     }
 }
