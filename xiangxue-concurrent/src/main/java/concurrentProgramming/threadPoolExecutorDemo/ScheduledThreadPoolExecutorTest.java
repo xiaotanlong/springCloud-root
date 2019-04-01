@@ -1,5 +1,6 @@
 package concurrentProgramming.threadPoolExecutorDemo;
 
+import javax.annotation.PostConstruct;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -15,6 +16,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class ScheduledThreadPoolExecutorTest {
     // ScheduledThreadPoolExecutor 的两种实例化方法
     public static AtomicInteger c = new AtomicInteger(1);
+    
     /**
      * 通过构造方法实例化
      * 0表示首次执行任务的延迟时间，

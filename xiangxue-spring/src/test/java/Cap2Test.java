@@ -7,8 +7,8 @@ public class Cap2Test {
 	@Test
 	public void test01(){
 		AnnotationConfigApplicationContext app = new AnnotationConfigApplicationContext(Cap2MainConfig.class);
-		
-		
+
+		AnnotationConfigApplicationContext app2 = new AnnotationConfigApplicationContext(Cap2MainConfig.class);
 		String[] names = app.getBeanDefinitionNames();
 		
 		for(String name:names){
