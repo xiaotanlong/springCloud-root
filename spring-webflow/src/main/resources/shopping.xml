@@ -13,9 +13,10 @@
     </view-state>
     <!-- 根据排在第一位的顺序来执行 -->
     <view-state id="shopping2" view="/templates/test2.html">
-        <transition on="submit" to="shopping2"></transition>
+        <transition on="submit" to="shopping2"></transition
         <transition on="confirm" to="shopping1"></transition>
     </view-state>
+
 
     <action-state id="login" >
         <evaluate expression="loginAction"/>
@@ -23,7 +24,7 @@
         <transition on="error" to="returnToIndex"></transition>
     </action-state>
 
-    <view-state id="viewOrder" view="viewOrder">
+        <view-state id="viewOrder" view="viewOrder">
         <transition on="confirm" to="orderConfirmed">
         </transition>
     </view-state>
