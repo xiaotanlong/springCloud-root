@@ -1,18 +1,5 @@
 package com.weixin.controller;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpRequest;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.PrintWriter;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
-
 /**
  * @ProjectName springcloudroot
  * @PackageName com.weixin.controller
@@ -21,7 +8,7 @@ import java.util.Arrays;
  * @Description :Plase give some message
  * 修改记录：1...;2....
  */
-@RestController
+/*@RestController
 @RequestMapping(value = "/WeixinController")
 public class WeixinController {
     // 设置一个全局的token,开发者自己设置。api这样解释：Token可由开发者可以任意填写，
@@ -82,9 +69,9 @@ public class WeixinController {
         }
         mParms = hexString.toString();// 加密结果
 
-        /*
+        *//*
          * api要求： 若确认此次GET请求来自微信服务器，请原样返回echostr参数内容， 则接入生效， 成为开发者成功，否则接入失败。
-         */
+         *//*
         // 第三步： 开发者获得加密后的字符串可与signature对比，标识该请求来源于微信接入成功。
         System.out.println(TAG + ":" + mParms + "---->" + signature);
         if (mParms.equals(signature)) {
@@ -95,4 +82,4 @@ public class WeixinController {
             System.out.println(TAG + "接入失败");
         }
     }
-}
+}*/
