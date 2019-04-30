@@ -22,6 +22,7 @@ public class CharTest {
             }
         }
 
+        //得到差异文本长度
         int y = 0;
         while (true){
 
