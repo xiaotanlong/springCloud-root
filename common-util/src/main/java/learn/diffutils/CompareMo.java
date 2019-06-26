@@ -11,9 +11,9 @@ public class CompareMo {
     private String newText;
     private String type;
     //行宽
-    private int totalNum;
+    /*private int totalNum;
     private int changeBeginNum;//差异开始下表
-    private int changeEndNum;//差异结束下表
+    private int changeEndNum;//差异结束下表*/
 
     public CompareMo(int id, String oldText, String newText, String type) {
         this.id = id;
