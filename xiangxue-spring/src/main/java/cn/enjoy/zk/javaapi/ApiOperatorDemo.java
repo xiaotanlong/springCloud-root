@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
  * Watcher watcher  使用自定义监听
  */
 public class ApiOperatorDemo implements Watcher{
-    private final static String CONNECTSTRING="47.107.79.2:2181";
+    private final static String CONNECTSTRING="127.0.0.1:2181";
     private static CountDownLatch countDownLatch=new CountDownLatch(1);
     private static ZooKeeper zookeeper;
     private static Stat stat=new Stat();//znode 的信息  比如：创建id  修改id  修改时间

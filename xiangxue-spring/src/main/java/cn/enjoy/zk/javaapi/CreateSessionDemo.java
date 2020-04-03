@@ -11,7 +11,7 @@ import java.util.concurrent.CountDownLatch;
  * zk原生的api
  */
 public class CreateSessionDemo  {
-    private final static String CONNECTSTRING="47.107.79.2:2181";
+    private final static String CONNECTSTRING="127.0.0.1:2181";
     private static CountDownLatch countDownLatch=new CountDownLatch(1);
     public static void main(String[] args) throws IOException, InterruptedException {
         //zk的监听  Watcher  监听拦截状态  通知客户端  状态变更。保证使用连接做增删改查的时候  连接是有效的

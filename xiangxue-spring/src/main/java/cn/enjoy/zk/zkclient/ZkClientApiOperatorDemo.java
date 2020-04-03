@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ZkClientApiOperatorDemo {
 
-    private final static String CONNECTSTRING="47.107.79.2:2181";
+    private final static String CONNECTSTRING="127.0.0.1:2181";
 
     private static ZkClient  getInstance(){
         return new ZkClient(CONNECTSTRING,10000);
