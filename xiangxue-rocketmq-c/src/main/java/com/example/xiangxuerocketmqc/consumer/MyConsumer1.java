@@ -14,11 +14,12 @@ import org.springframework.stereotype.Service;
  * @date 2019/3/12 16:24
  */
 @Service
-@RocketMQMessageListener(topic = "test-topic-1", consumerGroup = "my-consumer_test-topic-1")
+@RocketMQMessageListener(topic = "BenchmarkTest", consumerGroup = "my-consumer_test-topic-1")
 public class MyConsumer1 implements RocketMQListener<String> {
 
     Logger log = LoggerFactory.getLogger(MyConsumer1.class);
     public void onMessage(String message) {
+
         log.info("===========MyConsumer1========received message: {}", message);
     }
 }

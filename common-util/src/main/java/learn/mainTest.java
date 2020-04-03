@@ -11,6 +11,7 @@ import java.math.RoundingMode;
  */
 public class mainTest {
     public static void main(String[] args) {
+
         BigDecimal val = new BigDecimal(2).divide(new BigDecimal(3),2, RoundingMode.HALF_UP);
         System.out.println(val.doubleValue());
     }

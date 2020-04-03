@@ -20,13 +20,12 @@ import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
  */
 @Service
 @RocketMQMessageListener(
-        topic = "follow2ERP",
+        topic = "BenchmarkTest",
         consumerGroup = "test2"
 )
 public class MyConsumerTran implements RocketMQListener<String> {
     Logger log = LoggerFactory.getLogger(MyConsumerTran.class);
     public void onMessage(String message) {
-
         log.info(" =======MyConsumerTran=======received message: {}", message);
     }
 }

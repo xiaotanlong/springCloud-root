@@ -1,5 +1,7 @@
 package learn.java8;
 
+import learn.java8.bean.UserOrder;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -38,7 +40,41 @@ public class ListToSet {
                 .map(s->s.substring(s.lastIndexOf("=")+1,s.length()))
                 .collect(Collectors.toSet());
 
+
+
+
         ss.forEach(System.out::println);
         sss.forEach(System.out::println);
+
+        test();
+    }
+
+    public static void test(){
+        UserOrder order0 = new UserOrder("年会", "张三", "box0001");
+        UserOrder order1 = new UserOrder("婚庆", "张三", "box0002");
+        UserOrder order2 = new UserOrder("旅游", "李四", "box0003");
+        UserOrder order3 = new UserOrder("发布会", "张三", "box0002");
+        UserOrder order4 = new UserOrder("旅游", "李四", "box0004");
+
+        List<UserOrder> list = new ArrayList();
+        list.add(order0);
+        list.add(order1);
+        list.add(order2);
+        list.add(order3);
+        list.add(order4);
+
+
+        //多个条件比较
+        //Comparator.comparing(userOrder -> userOrder.getPhotographerName() + userOrder.getDeviceCode()))
+        ArrayList<UserOrder> distinctByName = list.stream()
+                .collect(
+                        Collectors.collectingAndThen(
+                                Collectors.toCollection(() -> new TreeSet<>(
+                                        Comparator.comparing(UserOrder::getPhotographerName))),
+                                userOrders -> new ArrayList<>(userOrders)
+                        )
+                );
+
+        distinctByName.forEach(System.out::println);
     }
 }
