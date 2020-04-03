@@ -75,6 +75,7 @@
     </dependencyManagement>
 
     <!-- 编译插件 -->
+
     <!--
         source： 源代码编译版本；
         target： 目标平台编译版本；
@@ -86,7 +87,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.1..4.RELEASE</version>
+                <version>2.1.4.RELEASE</version>
                 <configuration>
                     <executable>true</executable>
                 </configuration>
